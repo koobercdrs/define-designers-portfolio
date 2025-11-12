@@ -1,9 +1,12 @@
 import React from 'react'
+
+import { Layout } from '@/components/layout'
+
 import './styles.css'
 
 export const metadata = {
+  title: 'Define',
   description: 'A blank template using Payload in a Next.js app.',
-  title: 'Payload Blank Template',
 }
 
 export default async function RootLayout(props: { children: React.ReactNode }) {
@@ -12,7 +15,7 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <body>
-        <main>{children}</main>
+        <Layout>{children}</Layout>
       </body>
     </html>
   )

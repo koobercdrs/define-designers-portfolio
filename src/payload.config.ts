@@ -1,3 +1,4 @@
+import { resendAdapter } from '@payloadcms/email-resend'
 import { mongooseAdapter } from '@payloadcms/db-mongodb'
 import { buildConfig } from 'payload'
 import { fileURLToPath } from 'url'
@@ -14,6 +15,11 @@ export default buildConfig({
   sharp,
   plugins: [],
   collections: [Users, Media],
+  email: resendAdapter({
+    defaultFromAddress: 'Acme <onboarding@resend.dev>',
+    apiKey: process.env.RESEND_API || '',
+    defaultFromName: 'Define',
+  }),
   secret: process.env.PAYLOAD_SECRET || '',
   db: mongooseAdapter({ url: process.env.DATABASE_URL || '' }),
   typescript: { outputFile: path.resolve(dirname, 'payload-types.ts') },
