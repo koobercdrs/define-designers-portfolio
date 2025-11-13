@@ -1,9 +1,13 @@
-import { Button } from '@/components/ui/button'
+import { Fragment } from 'react'
+
+import { Hero } from './components/hero'
+import { Work } from './components/work'
 
 export const HomeView = () => {
   return (
-    <div className="flex justify-center">
-      <Button>Click Me</Button>
-    </div>
+    <Fragment>
+      <Hero />
+      <Work />
+    </Fragment>
   )
 }
