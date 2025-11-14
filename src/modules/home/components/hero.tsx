@@ -5,19 +5,27 @@ import { Button } from '@/components/ui/button'
 export const Hero = () => {
   return (
     <section className="relative h-[550px] w-full">
-      <div className="main-container absolute top-1/3 z-10 flex flex-col gap-5">
-        <h1 className="text-3xl font-bold text-white">Where Vision Becomes an action.</h1>
+      <div className="main-container flex flex-col gap-5 pt-20 lg:pt-60">
+        <h1 className="text-3xl font-bold text-white lg:text-5xl">
+          Where Vision Becomes an action.
+        </h1>
 
-        <p className="text-sm font-light text-white">
+        <p className="text-sm font-light text-white lg:text-xl">
           We build brands, design experiences, and turn creative ideas into impact.
         </p>
 
         <div className="flex items-center gap-3">
-          <Button asChild>
+          <Button
+            asChild
+            className="flex items-center justify-center border border-white/50 bg-white/20 backdrop-blur-sm"
+          >
             <Link href="/contact">Design With Us</Link>
           </Button>
 
-          <Button asChild>
+          <Button
+            asChild
+            className="flex items-center justify-center border border-white/50 bg-white/20 backdrop-blur-sm"
+          >
             <Link href="/portfolio">See Our Work</Link>
           </Button>
         </div>
@@ -37,7 +45,7 @@ const Animation = () => {
       width="320"
       height="240"
       preload="auto"
-      className="absolute inset-0 size-full object-cover object-left"
+      className="absolute inset-0 -z-10 size-full object-cover object-left"
     >
       <source src="/videos/hero1.mp4" type="video/mp4" />
       Your browser does not support the video tag.

@@ -21,7 +21,11 @@ export const MobileMenu = () => {
 
   return (
     <motion.nav initial="closed" animate={open ? 'opened' : 'closed'}>
-      <motion.div onClick={() => setOpen(true)} variants={hideNavItemsVariant}>
+      <motion.div
+        className="lg:hidden"
+        onClick={() => setOpen(true)}
+        variants={hideNavItemsVariant}
+      >
         <Image
           src="/icons/burger-menu.png"
           alt="burger menu"
@@ -36,7 +40,10 @@ export const MobileMenu = () => {
         variants={mobileMenuVariant}
       >
         <motion.button
-          className={cn(buttonVariants(), 'absolute top-4 right-3 size-8 rounded-[2px] p-1 bg-white/10')}
+          className={cn(
+            buttonVariants(),
+            'absolute top-4 right-3 size-8 rounded-[2px] bg-white/10 p-1',
+          )}
           onClick={() => setOpen(false)}
           variants={fadeInVariant}
         >

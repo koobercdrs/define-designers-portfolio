@@ -13,7 +13,7 @@ const data = [
 
 export const Work = () => {
   return (
-    <div>
+    <section className="lg:mt-12">
       <LogoLoop
         fadeOut
         gap={40}
@@ -26,6 +26,6 @@ export const Work = () => {
         fadeOutColor="#000"
         ariaLabel="Technology partners"
       />
-    </div>
+    </section>
   )
 }
