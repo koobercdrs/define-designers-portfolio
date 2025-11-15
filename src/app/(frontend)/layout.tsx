@@ -22,7 +22,7 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
 
   return (
     <html lang="en" className={overused.variable}>
-      <body className="bg-black">
+      <body className="overflow-x-hidden bg-black">
         <Layout>{children}</Layout>
       </body>
     </html>

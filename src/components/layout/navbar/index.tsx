@@ -16,7 +16,7 @@ export const Navbar = () => {
 
         <div className="flex items-center gap-6">
           <div className="flex flex-col items-center gap-2">
-            <h1 className="hidden text-center text-xl font-bold text-[#D8D4CA] lg:flex">
+            <h1 className="hidden text-center text-xl font-bold text-[#D8D4CA] lg:flex xl:max-w-[120px]">
               CHANGE DESIGN
             </h1>
 

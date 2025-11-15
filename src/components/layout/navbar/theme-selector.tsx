@@ -7,7 +7,7 @@ export const ThemeSelector = () => {
       {hero_themes.map((color, index) => (
         <div
           className={cn(
-            'size-3.5 cursor-pointer rounded-full lg:size-6',
+            'size-3.5 cursor-pointer rounded-full backdrop-blur-lg lg:size-6',
             color == 'default' ? 'bg-white/20' : 'bg-white/10',
           )}
           key={index}
