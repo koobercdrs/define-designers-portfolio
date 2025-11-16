@@ -4,3 +4,11 @@
 @import './utilities.css';
 @import './variables.css';
 @import './components.css';
+
+.glass-effect {
+  background: rgba(255, 255, 255, 0.12); /* Linear 12% */
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.8); /* Stroke with 80% opacity */
+  border-radius: 100px; /* Adjust as needed */
+}

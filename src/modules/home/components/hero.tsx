@@ -19,14 +19,14 @@ export const Hero = () => {
         <div className="flex items-center gap-3">
           <Button
             asChild
-            className="flex items-center justify-center border border-[#A04AFF]/20 bg-[#A04AFF]/30 backdrop-blur-lg"
+            className="flex items-center justify-center border border-white/10 bg-[#A04AFF]/30 backdrop-blur-lg"
           >
             <Link href="/contact">Design With Us</Link>
           </Button>
 
           <Button
             asChild
-            className="flex items-center justify-center border border-[#CBCBCB]/20 bg-[#CBCBCB]/20 backdrop-blur-lg"
+            className="flex items-center justify-center border border-white/10 bg-[#CBCBCB]/20 backdrop-blur-lg"
           >
             <Link href="/portfolio">See Our Work</Link>
           </Button>
