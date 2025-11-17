@@ -3,6 +3,7 @@ import { Fragment } from 'react'
 import { Hero } from './components/hero'
 import { Work } from './components/work'
 import { About } from './components/about'
+import { CTA } from './components/cta'
 
 export const HomeView = () => {
   return (
@@ -10,6 +11,7 @@ export const HomeView = () => {
       <Hero />
       <Work />
       <About />
+      <CTA />
     </Fragment>
   )
 }

@@ -1,13 +1,21 @@
+'use client'
+import { usePathname } from 'next/navigation'
 import Image from 'next/image'
+import Link from 'next/link'
 
 import { ThemeSelector } from './theme-selector'
+import { Button } from '@/components/ui/button'
 import { MobileMenu } from './mobile-menu'
 import { Navigation } from './navigation'
 
 export const Navbar = () => {
+  const pathname = usePathname()
+
+  const isHome = pathname === '/'
+
   return (
-    <header className="fixed top-5 z-50 w-full lg:top-16">
-      <div className="main-container flex items-center justify-between gap-4 lg:items-start">
+    <header className="absolute top-5 z-50 w-full lg:top-16">
+      <div className="main-container flex items-center justify-between gap-4">
         <div className="flex flex-col gap-8">
           <Image className="lg:w-[78px]" src="/icons/logo.png" alt="logo" width={70} height={27} />
 
@@ -15,13 +23,19 @@ export const Navbar = () => {
         </div>
 
         <div className="flex items-center gap-6">
-          <div className="flex flex-col items-center gap-2">
-            <h1 className="hidden text-center text-xl font-bold text-[#D8D4CA] lg:flex xl:max-w-[120px]">
-              CHANGE DESIGN
-            </h1>
+          {!isHome ? (
+            <Button className="bg-[#D8D4CA] text-black">
+              <Link href="/contact">Get started</Link>
+            </Button>
+          ) : (
+            <div className="flex flex-col items-center gap-2">
+              <h1 className="hidden text-center text-xl font-bold text-[#D8D4CA] lg:flex xl:max-w-[120px]">
+                CHANGE DESIGN
+              </h1>
 
-            <ThemeSelector />
-          </div>
+              <ThemeSelector />
+            </div>
+          )}
 
           <MobileMenu />
         </div>

@@ -1,3 +1,5 @@
+import { Compare } from '@/components/common/compare'
+
 export const About = () => {
   return (
     <section className="main-container mt-24 xl:mt-36">
@@ -11,6 +13,16 @@ export const About = () => {
           concepts and sketches to full brand strategy, visual identity, digital and print design,
           and motion graphics, we ensure every element is impactful.
         </p>
+      </div>
+
+      <div>
+        <Compare
+          className="aspect-video h-auto max-h-[700px] min-h-[200px] w-full"
+          secondImage="/images/secondImage.png"
+          firstImage="/images/firstImage.png"
+          initialSliderPercentage={2}
+          slideMode="drag"
+        />
       </div>
     </section>
   )

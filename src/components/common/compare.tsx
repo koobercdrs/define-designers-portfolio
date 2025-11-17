@@ -34,7 +34,7 @@ export const Compare = ({
 
   const sliderRef = useRef<HTMLDivElement>(null)
 
-  const [isMouseOver, setIsMouseOver] = useState(false)
+  const [_, setIsMouseOver] = useState(false)
 
   const autoplayRef = useRef<NodeJS.Timeout | null>(null)
 
@@ -162,26 +162,14 @@ export const Compare = ({
     >
       <AnimatePresence initial={false}>
         <motion.div
-          className="absolute top-0 z-30 m-auto h-full w-px bg-gradient-to-b from-transparent from-[5%] via-indigo-500 to-transparent to-[95%]"
+          className="absolute top-0 z-30 m-auto h-full w-[3px] bg-white/70"
           style={{
             left: `${sliderXPercent}%`,
-            top: '0',
             zIndex: 40,
+            top: '0',
           }}
           transition={{ duration: 0 }}
         >
-          <div className="absolute top-1/2 left-0 z-20 h-full w-36 -translate-y-1/2 bg-gradient-to-r from-indigo-400 via-transparent to-transparent [mask-image:radial-gradient(100px_at_left,white,transparent)] opacity-50" />
-          <div className="absolute top-1/2 left-0 z-10 h-1/2 w-10 -translate-y-1/2 bg-gradient-to-r from-cyan-400 via-transparent to-transparent [mask-image:radial-gradient(50px_at_left,white,transparent)] opacity-100" />
-          <div className="absolute top-1/2 -right-10 h-3/4 w-10 -translate-y-1/2 [mask-image:radial-gradient(100px_at_left,white,transparent)]">
-            {/* <MemoizedSparklesCore
-              background="transparent"
-              minSize={0.4}
-              maxSize={1}
-              particleDensity={1200}
-              className="h-full w-full"
-              particleColor="#FFFFFF"
-            /> */}
-          </div>
           {showHandlebar && (
             <div className="absolute top-1/2 -right-2.5 z-30 flex h-5 w-5 -translate-y-1/2 items-center justify-center rounded-md bg-white shadow-[0px_-1px_0px_0px_#FFFFFF40]">
               <EllipsisVertical className="h-4 w-4 text-black" />
@@ -220,7 +208,7 @@ export const Compare = ({
         {secondImage ? (
           <motion.img
             className={cn(
-              'absolute top-0 left-0 z-[19] h-full w-full rounded-2xl select-none',
+              'absolute top-0 left-0 z-10 h-full w-full rounded-2xl select-none',
               secondImageClassname,
             )}
             alt="second image"

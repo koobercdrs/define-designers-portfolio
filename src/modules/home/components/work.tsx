@@ -13,17 +13,17 @@ const data = [
 
 export const Work = () => {
   return (
-    <section className="lg:mt-12">
+    <section className="overflow-y-hidden lg:mt-12">
       <LogoLoop
         fadeOut
         gap={40}
         speed={120}
         logos={data}
-        scaleOnHover
         hoverSpeed={0}
         logoHeight={48}
         direction="left"
         fadeOutColor="#000"
+        className="overflow-y-hidden"
         ariaLabel="Technology partners"
       />
     </section>

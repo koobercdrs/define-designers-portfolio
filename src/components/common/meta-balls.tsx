@@ -78,34 +78,118 @@ uniform vec3 iMetaBalls[50];
 uniform float iClumpFactor;
 uniform bool enableTransparency;
 out vec4 outColor;
-const float PI = 3.14159265359;
- 
+
 float getMetaBallValue(vec2 c, float r, vec2 p) {
     vec2 d = p - c;
     float dist2 = dot(d, d);
     return (r * r) / dist2;
 }
- 
+
+float hash(vec2 p) {
+    return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453123);
+}
+
+float noise(vec2 p) {
+    vec2 i = floor(p);
+    vec2 f = fract(p);
+    f = f * f * (3.0 - 2.0 * f);
+    
+    float a = hash(i);
+    float b = hash(i + vec2(1.0, 0.0));
+    float c = hash(i + vec2(0.0, 1.0));
+    float d = hash(i + vec2(1.0, 1.0));
+    
+    return mix(mix(a, b, f.x), mix(c, d, f.x), f.y);
+}
+
 void main() {
     vec2 fc = gl_FragCoord.xy;
     float scale = iAnimationSize / iResolution.y;
     vec2 coord = (fc - iResolution.xy * 0.5) * scale;
     vec2 mouseW = (iMouse.xy - iResolution.xy * 0.5) * scale;
+    
+    // Calculate metaball field
     float m1 = 0.0;
+    vec2 closestBall = vec2(0.0);
+    float minDist = 999999.0;
+    
     for (int i = 0; i < 50; i++) {
         if (i >= iBallCount) break;
-        m1 += getMetaBallValue(iMetaBalls[i].xy, iMetaBalls[i].z, coord);
+        float val = getMetaBallValue(iMetaBalls[i].xy, iMetaBalls[i].z, coord);
+        m1 += val;
+        
+        float dist = length(coord - iMetaBalls[i].xy);
+        if (dist < minDist) {
+            minDist = dist;
+            closestBall = iMetaBalls[i].xy;
+        }
     }
     float m2 = getMetaBallValue(mouseW, iCursorBallSize, coord);
     float total = m1 + m2;
-    float f = smoothstep(-1.0, 1.0, (total - 1.3) / min(1.0, fwidth(total)));
+    
+    // Shape with sharp edges
+    float shape = smoothstep(1.25, 1.35, total);
+    
     vec3 cFinal = vec3(0.0);
-    if (total > 0.0) {
-        float alpha1 = m1 / total;
-        float alpha2 = m2 / total;
-        cFinal = iColor * alpha1 + iCursorColor * alpha2;
+    float alpha = 0.0;
+    
+    if (shape > 0.01) {
+        // Calculate normal-like direction from center
+        vec2 toCenter = normalize(coord - closestBall);
+        float normalAngle = atan(toCenter.y, toCenter.x);
+        
+        // Distance from threshold for edge detection
+        float edgeDist = total - 1.3;
+        float edge = smoothstep(0.05, 0.3, edgeDist);
+        
+        // Very bright, sharp edge highlight (top and sides)
+        float edgeIntensity = smoothstep(0.3, 0.05, edgeDist);
+        
+        // Directional lighting - bright on top/sides, dark on bottom
+        float lightAngle = normalAngle + 3.14159 * 0.5;
+        float directionalLight = sin(lightAngle) * 0.5 + 0.5;
+        directionalLight = pow(directionalLight, 2.0);
+        
+        // Strong top highlight
+        float topHighlight = smoothstep(-0.5, 0.8, -toCenter.y) * edgeIntensity * 2.5;
+        
+        // Side highlights with falloff
+        float sideHighlight = (1.0 - abs(toCenter.x)) * edgeIntensity * 1.5;
+        
+        // Intense white edge rim
+        float whiteRim = smoothstep(0.15, 0.0, edgeDist) * 3.0;
+        
+        // Smooth gradient from edge to center
+        float centerDarkness = smoothstep(0.8, 0.2, edge) * 0.15;
+        float edgeBrightness = smoothstep(0.2, 0.8, edge) * 0.4;
+        
+        // Very subtle noise for glass texture
+        float glassNoise = noise(fc * 0.05) * 0.02;
+        
+        // Build the glass appearance
+        float brightness = centerDarkness + edgeBrightness + glassNoise;
+        brightness += topHighlight;
+        brightness += sideHighlight * directionalLight;
+        brightness += whiteRim;
+        
+        // Pure grayscale glass with slight warm tint
+        vec3 glassColor = vec3(brightness);
+        glassColor *= vec3(1.0, 1.0, 0.98); // Very subtle warm tint
+        
+        // Add chromatic aberration on bright edges
+        if (edgeIntensity > 0.5) {
+            float chromatic = edgeIntensity * 0.15;
+            glassColor.r += chromatic * topHighlight * 0.5;
+            glassColor.b += chromatic * topHighlight * 0.3;
+        }
+        
+        cFinal = glassColor;
+        
+        // High opacity for solid glass look
+        alpha = shape * (0.5 + edgeIntensity * 0.4 + whiteRim * 0.1);
     }
-    outColor = vec4(cFinal * f, enableTransparency ? f : 1.0);
+    
+    outColor = vec4(cFinal, enableTransparency ? alpha : shape);
 }
 `
 
@@ -118,7 +202,7 @@ type BallParams = {
 }
 
 const MetaBalls: React.FC<MetaBallsProps> = ({
-  color = '#ffffff',
+  color = '#e0f2ff',
   speed = 0.3,
   enableMouseInteraction = true,
   hoverSmoothness = 0.05,
@@ -127,8 +211,8 @@ const MetaBalls: React.FC<MetaBallsProps> = ({
   clumpFactor = 1,
   className = '',
   cursorBallSize = 3,
-  cursorBallColor = '#ffffff',
-  enableTransparency = false,
+  cursorBallColor = '#f0f9ff',
+  enableTransparency = true,
 }) => {
   const containerRef = useRef<HTMLDivElement>(null)
 
@@ -144,6 +228,8 @@ const MetaBalls: React.FC<MetaBallsProps> = ({
     })
     const gl = renderer.gl
     gl.clearColor(0, 0, 0, enableTransparency ? 0 : 1)
+    gl.enable(gl.BLEND)
+    gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA)
     container.appendChild(gl.canvas)
 
     const camera = new Camera(gl, {
@@ -181,6 +267,7 @@ const MetaBalls: React.FC<MetaBallsProps> = ({
         iClumpFactor: { value: clumpFactor },
         enableTransparency: { value: enableTransparency },
       },
+      transparent: true,
     })
 
     const mesh = new Mesh(gl, { geometry, program })

@@ -4,7 +4,7 @@ import { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 
-import { buttonVariants } from '@/components/ui/button'
+import { Button, buttonVariants } from '@/components/ui/button'
 import { routes } from '@/configs/routes'
 import { cn } from '@/library/utils'
 
@@ -78,6 +78,17 @@ export const MobileMenu = () => {
             </motion.li>
           ))}
         </motion.ul>
+
+        <motion.div
+          variants={fadeInVariant}
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          className="absolute right-2 bottom-6"
+        >
+          <Button className="bg-[#D8D4CA] text-black">
+            <Link href="/contact">Get started</Link>
+          </Button>
+        </motion.div>
       </motion.div>
     </motion.nav>
   )
