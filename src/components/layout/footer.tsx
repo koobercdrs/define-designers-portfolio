@@ -16,31 +16,38 @@ export const Footer = () => {
 
           <ul className="grid grid-cols-2 gap-x-20 gap-y-3 text-sm font-medium text-white md:grid-cols-4 lg:gap-8 xl:gap-24">
             <li>
-              <Link href="/">Home page</Link>
+              <a href="/">Home page</a>
             </li>
             <li>
-              <Link href="/">Portfolio</Link>
+              <Link href="/portfolio">Portfolio</Link>
             </li>
             <li>
-              <Link href="/">Services offered</Link>
+              <Link href="/services">Services offered</Link>
             </li>
             <li>
-              <Link href="/">We Draft</Link>
+              <Link href="/draft">We Draft</Link>
             </li>
           </ul>
         </div>
 
         <div className="mt-4 mb-9 h-px w-full rounded-md bg-white/30 lg:my-10"></div>
 
+        {/* TODO: add links */}
         <div className="flex items-center justify-between gap-10">
           <ul className="flex flex-col gap-3 text-sm font-medium text-white">
-            <li>34b Alexander Kazbegi ave, Tbilisi</li>
-            <li>design@ddrafts.com</li>
-            <li>557 544 700</li>
+            <li>
+              <a href="">34b Alexander Kazbegi ave, Tbilisi</a>
+            </li>
+            <li>
+              <a href="">design@ddrafts.com</a>
+            </li>
+            <li>
+              <a href="">+995 557 544 700</a>
+            </li>
           </ul>
 
           <p className="hidden max-w-[800px] text-right text-base font-light text-white lg:block">
-            Define Draft creates cohesive and modern brand identities. We design logos, visual
+            Define Draft creates cohesive and modern brand identities. We design logos, visual
             systems, and brand guidelines. We craft digital and print layouts, and social media
             visuals. We also produce motion graphics and logo animations. Finally, we provide
             creative direction and brand storytelling to make your brand stand out.

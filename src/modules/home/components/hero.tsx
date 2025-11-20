@@ -38,20 +38,20 @@ const Animation = () => {
     <LiquidEther
       className="absolute! inset-0 -z-10 size-full"
       colors={['#5227FF', '#FF9FFC', '#B19EEF']}
-      mouseForce={50}
-      cursorSize={100}
-      isViscous={false}
-      viscous={30}
-      iterationsViscous={64}
-      iterationsPoisson={32}
-      resolution={0.5}
-      isBounce={false}
-      autoDemo={true}
-      autoSpeed={1}
-      autoIntensity={3}
       takeoverDuration={0.25}
+      iterationsPoisson={32}
       autoResumeDelay={3000}
+      iterationsViscous={64}
       autoRampDuration={0.6}
+      autoIntensity={3}
+      isViscous={false}
+      cursorSize={100}
+      isBounce={false}
+      resolution={0.5}
+      mouseForce={50}
+      autoDemo={true}
+      autoSpeed={0}
+      viscous={30}
     />
   )
 }

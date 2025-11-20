@@ -1,8 +1,8 @@
-import { BentoGrid, BentoGridItem } from '@/components/common/bento-grid'
+import { BentoGrid, BentoGridImage } from '@/components/common/bento-grid'
 
 export const Projects = () => {
   return (
-    <section className="main-container my-20">
+    <section id="work" className="main-container my-20">
       <div className="flex flex-col gap-5">
         <h1 className="text-2xl font-bold text-[#D9D7D3]">Projects</h1>
 
@@ -19,7 +19,7 @@ export const Projects = () => {
           const rowSpanClass = item.rowSpan === 2 ? 'md:row-span-2' : ''
 
           return (
-            <BentoGridItem key={i} url={item.url} className={`${colSpanClass} ${rowSpanClass}`} />
+            <BentoGridImage key={i} url={item.url} className={`${colSpanClass} ${rowSpanClass}`} />
           )
         })}
       </BentoGrid>

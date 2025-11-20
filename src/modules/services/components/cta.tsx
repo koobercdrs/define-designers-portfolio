@@ -6,11 +6,11 @@ export const CTA = () => {
     <section className="main-container my-24 flex flex-col items-center gap-6">
       <div className="flex flex-col items-center gap-2 text-center">
         <h1 className="text-2xl font-medium text-white lg:text-[32px] xl:text-[40px]">
-          Let&apos;s Bring Your Design Idea to Life
+          Get Your Free Consultation
         </h1>
 
         <p className="text-sm font-light text-white lg:text-xl xl:text-2xl">
-          From concept to launch, our team&apos;s here to craft something you&apos;ll be proud of.
+          Reach out today and start your next big project with our expert team.
         </p>
       </div>
 

@@ -5,6 +5,7 @@ import React from 'react'
 import { Layout } from '@/components/layout'
 
 import '@/styles/styles.css'
+import { cn } from '@/library/utils'
 
 const overused = localFont({
   src: '../../fonts/OverusedGrotesk.ttf',
@@ -21,8 +22,8 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
   const { children } = props
 
   return (
-    <html lang="en" className={overused.variable}>
-      <body className="overflow-x-hidden bg-black">
+    <html lang="en" className={cn(overused.variable, 'scroll-smooth')}>
+      <body className="overflow-x-hidden scroll-smooth bg-black">
         <Layout>{children}</Layout>
       </body>
     </html>

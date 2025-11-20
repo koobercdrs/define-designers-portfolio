@@ -1,5 +1,5 @@
 @layer components {
   .main-container {
-    @apply mx-auto w-full px-4 lg:max-w-[820px] lg:p-0 xl:max-w-[1240px] 2xl:max-w-[1440px];
+    @apply mx-auto w-full px-4 lg:max-w-[920px] lg:p-0 xl:max-w-[1240px] 2xl:max-w-[1440px];
   }
 }
