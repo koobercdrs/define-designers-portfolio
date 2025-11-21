@@ -2,6 +2,7 @@ import { ReactNode } from 'react'
 import Image from 'next/image'
 
 import { cn } from '@/library/utils'
+import SpotlightCard from './spotlight-card'
 
 export const BentoGrid = ({
   className,
@@ -51,10 +52,11 @@ export const BentoGridItem = ({
   const id = number > 3 ? number - 1 : number
 
   return (
-    <div
+    <SpotlightCard
+      spotlightColor="rgba(187, 74, 247, 0.6)"
       className={cn(
-        'row-span-1 flex flex-col justify-between gap-12 rounded-2xl border border-white/10 p-4 backdrop-blur-lg',
-        isPrimary ? 'bg-[#EEEEEE]' : 'bg-[#131218]',
+        'row-span-1 flex flex-col justify-between gap-12 rounded-2xl border border-white/10 p-4 backdrop-blur-xs',
+        isPrimary ? 'bg-[#EEEEEE]' : 'bg-[#131218]/10',
         className,
       )}
     >
@@ -68,12 +70,16 @@ export const BentoGridItem = ({
           {id >= 10 ? id : `0${id}`}
         </div>
 
-        <div className={cn('text-2xl', isPrimary ? 'text-black' : 'text-white')}>{title}</div>
+        <div
+          className={cn('text-2xl md:text-lg xl:text-2xl', isPrimary ? 'text-black' : 'text-white')}
+        >
+          {title}
+        </div>
       </div>
 
       <div className={cn('text-base xl:text-lg', isPrimary ? 'text-black' : 'text-white')}>
         {description}
       </div>
-    </div>
+    </SpotlightCard>
   )
 }

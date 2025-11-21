@@ -22,7 +22,7 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
   const { children } = props
 
   return (
-    <html lang="en" className={cn(overused.variable, 'scroll-smooth')}>
+    <html lang="en" className={cn(overused.variable, 'overflow-x-hidden scroll-smooth')}>
       <body className="overflow-x-hidden scroll-smooth bg-black">
         <Layout>{children}</Layout>
       </body>

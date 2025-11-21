@@ -1,16 +1,18 @@
-import { Fragment, ReactNode } from 'react'
+import { ReactNode } from 'react'
+
+import { ThemeProvider } from '@/modules/home/context/theme-context'
 
 import { Footer } from './footer'
 import { Navbar } from './navbar'
 
 export const Layout = ({ children }: { children: ReactNode }) => {
   return (
-    <Fragment>
+    <ThemeProvider>
       <Navbar />
 
       <main>{children}</main>
 
       <Footer />
-    </Fragment>
+    </ThemeProvider>
   )
 }

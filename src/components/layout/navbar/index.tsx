@@ -7,6 +7,7 @@ import { ThemeSelector } from './theme-selector'
 import { Button } from '@/components/ui/button'
 import { MobileMenu } from './mobile-menu'
 import { Navigation } from './navigation'
+import SpotlightCard from '@/components/common/spotlight-card'
 
 export const Navbar = () => {
   const pathname = usePathname()
@@ -14,15 +15,23 @@ export const Navbar = () => {
   const isHome = pathname === '/'
 
   return (
-    <header className="absolute top-5 z-50 w-full lg:top-16">
+    <header className="pointer-events-none absolute top-5 z-50 w-full lg:top-16">
       <div className="main-container flex items-center justify-between gap-4">
         <div className="flex flex-col gap-8">
-          <Image className="lg:w-[78px]" src="/icons/logo.png" alt="logo" width={70} height={27} />
+          <Link className="pointer-events-auto" href="/">
+            <Image
+              className="lg:w-[78px]"
+              src="/icons/logo.png"
+              height={27}
+              width={70}
+              alt="logo"
+            />
+          </Link>
 
           <Navigation />
         </div>
 
-        <div className="flex items-center gap-6">
+        <div className="pointer-events-auto flex items-center gap-6">
           {!isHome ? (
             <Button className="bg-[#D8D4CA] text-black">
               <Link href="/contact">Get started</Link>

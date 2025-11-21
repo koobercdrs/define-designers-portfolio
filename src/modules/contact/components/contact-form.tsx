@@ -101,6 +101,7 @@ export const ContactForm = () => {
         />
         <Button
           className="relative w-full overflow-hidden rounded-sm bg-[#4F21C5] text-white"
+          hasAnimation={false}
           type="submit"
         >
           Submit Form

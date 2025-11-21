@@ -16,7 +16,7 @@ export const Footer = () => {
 
           <ul className="grid grid-cols-2 gap-x-20 gap-y-3 text-sm font-medium text-white md:grid-cols-4 lg:gap-8 xl:gap-24">
             <li>
-              <a href="/">Home page</a>
+              <Link href="/">Home page</Link>
             </li>
             <li>
               <Link href="/portfolio">Portfolio</Link>
@@ -36,13 +36,19 @@ export const Footer = () => {
         <div className="flex items-center justify-between gap-10">
           <ul className="flex flex-col gap-3 text-sm font-medium text-white">
             <li>
-              <a href="">34b Alexander Kazbegi ave, Tbilisi</a>
+              <a target="_blank" href="/not-new">
+                34b Alexander Kazbegi ave, Tbilisi
+              </a>
             </li>
             <li>
-              <a href="">design@ddrafts.com</a>
+              <a target="_blank" href="/not-new">
+                design@ddrafts.com
+              </a>
             </li>
             <li>
-              <a href="">+995 557 544 700</a>
+              <a target="_blank" href="/not-new">
+                +995 557 544 700
+              </a>
             </li>
           </ul>
 

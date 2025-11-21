@@ -3,3 +3,9 @@
     @apply mx-auto w-full px-4 lg:max-w-[920px] lg:p-0 xl:max-w-[1240px] 2xl:max-w-[1440px];
   }
 }
+
+@layer utilities {
+  .clip-custom {
+    clip-path: polygon(5% 54%, 100% 0%, 14% 77%, 0% 100%);
+  }
+}

@@ -1,13 +1,13 @@
 import Link from 'next/link'
 
-import LiquidEther from '@/components/common/liquid-ether'
 import MetaBalls from '@/components/common/meta-balls'
+import { HeroAnimation } from './hero-animation'
 import { Button } from '@/components/ui/button'
 
 export const Hero = () => {
   return (
     <section className="relative h-[550px] w-full lg:h-[80dvh] xl:h-dvh">
-      <div className="main-container flex h-full flex-col gap-5 pt-20 lg:pt-60">
+      <div className="main-container pointer-events-none relative z-10 flex h-full flex-col gap-5 pt-20 lg:pt-60">
         <h1 className="max-w-[800px] text-3xl font-bold text-white lg:text-5xl xl:text-6xl">
           Where Vision Becomes an action.
         </h1>
@@ -16,7 +16,7 @@ export const Hero = () => {
           We build brands, design experiences, and turn creative ideas into impact.
         </p>
 
-        <div className="flex items-center gap-3">
+        <div className="pointer-events-auto flex items-center gap-3">
           <Button asChild className="flex items-center justify-center">
             <Link href="/contact">Design With Us</Link>
           </Button>
@@ -28,37 +28,14 @@ export const Hero = () => {
       </div>
 
       <Blob />
-      <Animation />
+      <HeroAnimation />
     </section>
-  )
-}
-
-const Animation = () => {
-  return (
-    <LiquidEther
-      className="absolute! inset-0 -z-10 size-full"
-      colors={['#5227FF', '#FF9FFC', '#B19EEF']}
-      takeoverDuration={0.25}
-      iterationsPoisson={32}
-      autoResumeDelay={3000}
-      iterationsViscous={64}
-      autoRampDuration={0.6}
-      autoIntensity={3}
-      isViscous={false}
-      cursorSize={100}
-      isBounce={false}
-      resolution={0.5}
-      mouseForce={50}
-      autoDemo={true}
-      autoSpeed={0}
-      viscous={30}
-    />
   )
 }
 
 const Blob = () => {
   return (
-    <div className="absolute right-0 bottom-0 size-1/2">
+    <div className="pointer-events-none absolute right-0 bottom-0 z-5 size-1/2">
       <MetaBalls
         enableMouseInteraction={false}
         enableTransparency={true}
