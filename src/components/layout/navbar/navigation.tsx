@@ -11,7 +11,7 @@ export const Navigation = () => {
 
   return (
     <SpotlightCard spotlightColor="rgba(187, 74, 247, 0.8)" className="pointer-events-auto p-0">
-      <nav className="hidden h-10 w-full max-w-[421px] rounded-4xl border border-white/10 bg-linear-to-b from-[#101010]/10 to-white/10 px-8 backdrop-blur-lg lg:flex">
+      <nav className="liquid-glass hidden h-10 w-full max-w-[421px] rounded-4xl border border-white/10 bg-linear-to-b from-[#101010]/10 to-white/10 px-8 backdrop-blur-lg lg:flex">
         <ul className="flex size-full items-center gap-6">
           {routes.map((route, index) => {
             const isActive = pathname === route.href

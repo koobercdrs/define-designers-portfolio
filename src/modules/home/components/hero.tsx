@@ -21,7 +21,7 @@ export const Hero = () => {
             <Link href="/contact">Design With Us</Link>
           </Button>
 
-          <Button asChild className="flex items-center justify-center">
+          <Button variant="secondary" asChild className="flex items-center justify-center">
             <Link href="/portfolio">See Our Work</Link>
           </Button>
         </div>

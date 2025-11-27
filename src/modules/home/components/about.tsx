@@ -21,7 +21,7 @@ export const About = () => {
           secondImage="/images/secondImage.png"
           firstImage="/images/firstImage.png"
           initialSliderPercentage={2}
-          slideMode="drag"
+          slideMode="hover"
         />
       </div>
     </section>
