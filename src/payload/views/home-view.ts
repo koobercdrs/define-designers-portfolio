@@ -37,7 +37,18 @@ export const HomeView: GlobalConfig = {
       name: 'work',
       type: 'array',
       required: true,
-      fields: [{ name: 'icon', type: 'text', required: true }],
+      fields: [
+        { name: 'text', type: 'text' },
+        { name: 'href', type: 'text' },
+        { name: 'icon', type: 'upload', relationTo: 'media' },
+        {
+          name: 'type',
+          type: 'select',
+          required: true,
+          defaultValue: 'text',
+          options: ['icon', 'text'],
+        },
+      ],
     },
 
     // About

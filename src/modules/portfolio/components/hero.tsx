@@ -1,21 +1,21 @@
 import LiquidChrome from '@/components/common/liquid-chrome'
 import { Button } from '@/components/ui/button'
+import { PortfolioView } from '@/payload-types'
 
-export const Hero = () => {
+export const Hero = ({ content }: { content: PortfolioView['hero'] }) => {
   return (
     <section className="relative h-[70dvh] lg:h-dvh">
       <div className="main-container pointer-events-none relative z-10 size-full pt-32 lg:pt-60">
         <h1 className="pointer-events-auto text-3xl font-bold text-[#D9D7D3] lg:text-5xl xl:text-6xl">
-          Projects That Define Us.
+          {content.title}
         </h1>
 
         <p className="pointer-events-auto mt-4 mb-6 text-sm font-light text-white lg:mt-6 lg:mb-10 lg:text-xl xl:text-2xl">
-          We build identities that move — brands that speak through design, motion, and story. Each
-          project is a new language, shaped by strategy, instinct, and bold visual thinking.
+          {content.subtitle}
         </p>
 
         <Button className="pointer-events-auto" variant="secondary">
-          <a href="#work">See Our Work</a>
+          <a href="#work">{content.btn}</a>
         </Button>
       </div>
 

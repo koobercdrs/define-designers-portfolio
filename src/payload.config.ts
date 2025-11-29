@@ -11,6 +11,8 @@ import { Media } from './payload/collections/Media'
 import { PortfolioView } from './payload/views/portfolio-view'
 import { ServiceView } from './payload/views/services-view'
 import { HomeView } from './payload/views/home-view'
+import { ContactView } from './payload/views/contact-view'
+import { DraftView } from './payload/views/draft-view'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -18,8 +20,9 @@ const dirname = path.dirname(filename)
 export default buildConfig({
   sharp,
   plugins: [],
+  defaultDepth: 2,
   collections: [Users, Media],
-  globals: [HomeView, ServiceView, PortfolioView],
+  globals: [HomeView, ServiceView, PortfolioView, ContactView, DraftView],
   email: resendAdapter({
     defaultFromAddress: 'Acme <onboarding@resend.dev>',
     apiKey: process.env.RESEND_API || '',

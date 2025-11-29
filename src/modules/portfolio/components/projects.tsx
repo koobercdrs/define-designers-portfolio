@@ -1,16 +1,13 @@
 import { BentoGrid, BentoGridImage } from '@/components/common/bento-grid'
+import { PortfolioView } from '@/payload-types'
 
-export const Projects = () => {
+export const Projects = ({ content }: { content: PortfolioView['projects'] }) => {
   return (
     <section id="work" className="main-container my-20">
       <div className="flex flex-col gap-5">
-        <h1 className="text-2xl font-bold text-[#D9D7D3]">Projects</h1>
+        <h1 className="text-2xl font-bold text-[#D9D7D3]">{content.title}</h1>
 
-        <p className="text-sm font-light text-[#D9D7D3]/90">
-          At Define Draft, we create projects that bring brands to life. Each project is a blend of
-          strategy, creativity, and visual storytelling — from logos and visual identities to
-          websites, print, and motion graphics
-        </p>
+        <p className="text-sm font-light text-[#D9D7D3]/90">{content.subtitle}</p>
       </div>
 
       <BentoGrid className="mt-20 gap-2">

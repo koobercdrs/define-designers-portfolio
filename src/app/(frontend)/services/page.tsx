@@ -1,7 +1,7 @@
 import { ServicesView } from '@/modules/services'
 import { getPayload } from '@/library/payload'
-import { cache } from 'react'
 import { notFound } from 'next/navigation'
+import { cache } from 'react'
 
 const getData = cache(async () => {
   try {

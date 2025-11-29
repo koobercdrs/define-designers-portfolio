@@ -4,12 +4,14 @@ import { Hero } from './components/hero'
 import { About } from './components/about'
 import { CTA } from './components/cta'
 
-export const DraftView = () => {
+import { DraftView as IDraftView } from '@/payload-types'
+
+export const DraftView = ({ content }: { content: IDraftView }) => {
   return (
     <Fragment>
-      <Hero />
+      <Hero content={content.hero} />
       <About />
-      <CTA />
+      <CTA content={content.cta} />
     </Fragment>
   )
 }

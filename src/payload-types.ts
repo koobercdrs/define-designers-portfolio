@@ -90,11 +90,15 @@ export interface Config {
     'home-view': HomeView;
     'service-view': ServiceView;
     'portfolio-view': PortfolioView;
+    'contact-view': ContactView;
+    'draft-view': DraftView;
   };
   globalsSelect: {
     'home-view': HomeViewSelect<false> | HomeViewSelect<true>;
     'service-view': ServiceViewSelect<false> | ServiceViewSelect<true>;
     'portfolio-view': PortfolioViewSelect<false> | PortfolioViewSelect<true>;
+    'contact-view': ContactViewSelect<false> | ContactViewSelect<true>;
+    'draft-view': DraftViewSelect<false> | DraftViewSelect<true>;
   };
   locale: null;
   user: User & {
@@ -333,7 +337,10 @@ export interface HomeView {
     secondary_btn: string;
   };
   work: {
-    icon: string;
+    text?: string | null;
+    href?: string | null;
+    icon?: (string | null) | Media;
+    type: 'icon' | 'text';
     id?: string | null;
   }[];
   about: {
@@ -401,6 +408,38 @@ export interface PortfolioView {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "contact-view".
+ */
+export interface ContactView {
+  id: string;
+  form: {
+    title: string;
+    subtitle: string;
+  };
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "draft-view".
+ */
+export interface DraftView {
+  id: string;
+  hero: {
+    title: string;
+    subtitle: string;
+  };
+  cta: {
+    title: string;
+    subtitle: string;
+    primary_btn: string;
+    secondary_btn: string;
+  };
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "home-view_select".
  */
 export interface HomeViewSelect<T extends boolean = true> {
@@ -415,7 +454,10 @@ export interface HomeViewSelect<T extends boolean = true> {
   work?:
     | T
     | {
+        text?: T;
+        href?: T;
         icon?: T;
+        type?: T;
         id?: T;
       };
   about?:
@@ -495,6 +537,44 @@ export interface PortfolioViewSelect<T extends boolean = true> {
               link?: T;
               id?: T;
             };
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "contact-view_select".
+ */
+export interface ContactViewSelect<T extends boolean = true> {
+  form?:
+    | T
+    | {
+        title?: T;
+        subtitle?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "draft-view_select".
+ */
+export interface DraftViewSelect<T extends boolean = true> {
+  hero?:
+    | T
+    | {
+        title?: T;
+        subtitle?: T;
+      };
+  cta?:
+    | T
+    | {
+        title?: T;
+        subtitle?: T;
+        primary_btn?: T;
+        secondary_btn?: T;
       };
   updatedAt?: T;
   createdAt?: T;
