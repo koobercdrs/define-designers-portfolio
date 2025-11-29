@@ -1,54 +1,33 @@
 import Link from 'next/link'
 
-import MetaBalls from '@/components/common/meta-balls'
 import { HeroAnimation } from './hero-animation'
 import { Button } from '@/components/ui/button'
+import { HomeView } from '@/payload-types'
 
-export const Hero = () => {
+export const Hero = ({ content }: { content: HomeView['hero'] }) => {
   return (
     <section className="relative h-[550px] w-full lg:h-[80dvh] xl:h-dvh">
       <div className="main-container pointer-events-none relative z-10 flex h-full flex-col gap-5 pt-20 lg:pt-60">
         <h1 className="max-w-[800px] text-3xl font-bold text-white lg:text-5xl xl:text-6xl">
-          Where Vision Becomes an action.
+          {content.title}
         </h1>
 
         <p className="max-w-[550px] text-sm font-light text-white lg:text-xl xl:text-2xl">
-          We build brands, design experiences, and turn creative ideas into impact.
+          {content.subtitle}
         </p>
 
         <div className="pointer-events-auto flex items-center gap-3">
           <Button asChild className="flex items-center justify-center">
-            <Link href="/contact">Design With Us</Link>
+            <Link href="/contact">{content.primary_btn}</Link>
           </Button>
 
           <Button variant="secondary" asChild className="flex items-center justify-center">
-            <Link href="/portfolio">See Our Work</Link>
+            <Link href="/portfolio">{content.secondary_btn}</Link>
           </Button>
         </div>
       </div>
 
-      <Blob />
       <HeroAnimation />
     </section>
-  )
-}
-
-const Blob = () => {
-  return (
-    <div className="pointer-events-none absolute right-0 bottom-0 z-5 size-1/2">
-      <MetaBalls
-        enableMouseInteraction={false}
-        enableTransparency={true}
-        cursorBallColor="#CBCBCB"
-        className="size-full"
-        hoverSmoothness={1}
-        cursorBallSize={2}
-        animationSize={40}
-        clumpFactor={1.2}
-        color="#CBCBCB"
-        ballCount={60}
-        speed={0.5}
-      />
-    </div>
   )
 }

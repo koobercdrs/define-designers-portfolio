@@ -1,4 +1,5 @@
 import LogoLoop from '@/components/common/logo-loop'
+import { HomeView } from '@/payload-types'
 
 const data = [
   { node: '', title: 'We Design' },
@@ -11,7 +12,7 @@ const data = [
   { node: '', title: 'We Design' },
 ]
 
-export const Work = () => {
+export const Work = ({ content }: { content: HomeView['work'] }) => {
   return (
     <section className="lg:mt-12">
       <LogoLoop

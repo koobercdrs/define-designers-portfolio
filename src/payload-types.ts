@@ -86,8 +86,16 @@ export interface Config {
   db: {
     defaultIDType: string;
   };
-  globals: {};
-  globalsSelect: {};
+  globals: {
+    'home-view': HomeView;
+    'service-view': ServiceView;
+    'portfolio-view': PortfolioView;
+  };
+  globalsSelect: {
+    'home-view': HomeViewSelect<false> | HomeViewSelect<true>;
+    'service-view': ServiceViewSelect<false> | ServiceViewSelect<true>;
+    'portfolio-view': PortfolioViewSelect<false> | PortfolioViewSelect<true>;
+  };
   locale: null;
   user: User & {
     collection: 'users';
@@ -311,6 +319,186 @@ export interface PayloadMigrationsSelect<T extends boolean = true> {
   batch?: T;
   updatedAt?: T;
   createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "home-view".
+ */
+export interface HomeView {
+  id: string;
+  hero: {
+    title: string;
+    subtitle: string;
+    primary_btn: string;
+    secondary_btn: string;
+  };
+  work: {
+    icon: string;
+    id?: string | null;
+  }[];
+  about: {
+    title: string;
+    subtitle: string;
+  };
+  cta: {
+    title: string;
+    subtitle: string;
+    primary_btn: string;
+    secondary_btn: string;
+  };
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "service-view".
+ */
+export interface ServiceView {
+  id: string;
+  hero: {
+    title: string;
+    subtitle: string;
+    btn: string;
+  };
+  services: {
+    title: string;
+    list: {
+      title: string;
+      desc: string;
+      id?: string | null;
+    }[];
+  };
+  cta: {
+    title: string;
+    subtitle: string;
+    primary_btn: string;
+    secondary_btn: string;
+  };
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "portfolio-view".
+ */
+export interface PortfolioView {
+  id: string;
+  hero: {
+    title: string;
+    subtitle: string;
+    btn: string;
+  };
+  projects: {
+    title: string;
+    subtitle: string;
+    list: {
+      link: string;
+      id?: string | null;
+    }[];
+  };
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "home-view_select".
+ */
+export interface HomeViewSelect<T extends boolean = true> {
+  hero?:
+    | T
+    | {
+        title?: T;
+        subtitle?: T;
+        primary_btn?: T;
+        secondary_btn?: T;
+      };
+  work?:
+    | T
+    | {
+        icon?: T;
+        id?: T;
+      };
+  about?:
+    | T
+    | {
+        title?: T;
+        subtitle?: T;
+      };
+  cta?:
+    | T
+    | {
+        title?: T;
+        subtitle?: T;
+        primary_btn?: T;
+        secondary_btn?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "service-view_select".
+ */
+export interface ServiceViewSelect<T extends boolean = true> {
+  hero?:
+    | T
+    | {
+        title?: T;
+        subtitle?: T;
+        btn?: T;
+      };
+  services?:
+    | T
+    | {
+        title?: T;
+        list?:
+          | T
+          | {
+              title?: T;
+              desc?: T;
+              id?: T;
+            };
+      };
+  cta?:
+    | T
+    | {
+        title?: T;
+        subtitle?: T;
+        primary_btn?: T;
+        secondary_btn?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "portfolio-view_select".
+ */
+export interface PortfolioViewSelect<T extends boolean = true> {
+  hero?:
+    | T
+    | {
+        title?: T;
+        subtitle?: T;
+        btn?: T;
+      };
+  projects?:
+    | T
+    | {
+        title?: T;
+        subtitle?: T;
+        list?:
+          | T
+          | {
+              link?: T;
+              id?: T;
+            };
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

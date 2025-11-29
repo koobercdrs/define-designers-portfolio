@@ -1,22 +1,22 @@
 import FloatingLines from '@/components/common/floating-lines'
 import { Button } from '@/components/ui/button'
+import { ServiceView } from '@/payload-types'
 import Link from 'next/link'
 
-export const Hero = () => {
+export const Hero = ({ content }: { content: ServiceView['hero'] }) => {
   return (
     <section className="relative h-[70dvh] lg:h-dvh">
       <div className="main-container pointer-events-none relative z-10 size-full pt-32 lg:pt-60">
-        <h1 className="pointer-events-auto text-3xl font-bold text-[#D9D7D3] lg:text-5xl xl:text-6xl">
-          Our services turn your vision into visual poetry.
+        <h1 className="pointer-events-auto max-w-[900px] text-3xl font-bold text-[#D9D7D3] lg:text-5xl xl:text-6xl">
+          {content.title}
         </h1>
 
-        <p className="pointer-events-auto mt-4 mb-6 text-sm font-light text-white lg:mt-6 lg:mb-10 lg:text-xl xl:text-2xl">
-          We combine creativity, strategy, and design to craft cohesive, memorable, and impactful
-          brand experiences across all platforms.
+        <p className="pointer-events-auto mt-4 mb-6 max-w-[900px] text-sm font-light text-white lg:mt-6 lg:mb-10 lg:text-xl xl:text-2xl">
+          {content.subtitle}
         </p>
 
         <Button className="pointer-events-auto" variant="secondary">
-          <Link href="/portfolio">See Our Work</Link>
+          <Link href="/portfolio">{content.btn}</Link>
         </Button>
       </div>
 

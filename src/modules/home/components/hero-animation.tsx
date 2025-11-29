@@ -1,12 +1,12 @@
 'use client'
 import dynamic from 'next/dynamic'
+import { Fragment } from 'react'
 
-import { useTheme } from '../context/theme-context'
 import GradientBlinds from '@/components/common/gradient-blinds'
+import MetaBalls from '@/components/common/meta-balls'
+import { useTheme } from '../context/theme-context'
 
-const FloatingLines = dynamic(() => import('@/components/common/floating-lines'), { ssr: false })
 const LiquidChrome = dynamic(() => import('@/components/common/liquid-chrome'), { ssr: false })
-const LiquidEther = dynamic(() => import('@/components/common/liquid-ether'), { ssr: false })
 
 export const HeroAnimation = () => {
   const { theme } = useTheme()
@@ -18,7 +18,7 @@ export const HeroAnimation = () => {
         gradientColors={['#FF9FFC', '#5227FF']}
         mixBlendMode="lighten"
         mouseDampening={0.15}
-        spotlightRadius={0.5}
+        spotlightRadius={0.3}
         spotlightSoftness={1}
         shineDirection="left"
         spotlightOpacity={1}
@@ -33,17 +33,21 @@ export const HeroAnimation = () => {
 
   if (theme === 'FloatingLines') {
     return (
-      <div className="absolute inset-0 z-0 size-full">
-        <FloatingLines
-          enabledWaves={['top', 'middle', 'bottom']}
-          lineDistance={[30, 35, 30]}
-          lineCount={[20, 6, 20]}
-          bendStrength={-0.5}
-          interactive={true}
-          bendRadius={5.0}
-          parallax={true}
-        />
-      </div>
+      <GradientBlinds
+        className="absolute! inset-0 z-0 size-full"
+        gradientColors={['#FF9FFC', '#5227FF']}
+        mixBlendMode="lighten"
+        mouseDampening={0.15}
+        spotlightRadius={0.4}
+        spotlightSoftness={1}
+        shineDirection="left"
+        spotlightOpacity={1}
+        blindMinWidth={50}
+        distortAmount={0}
+        blindCount={12}
+        noise={0.3}
+        angle={0}
+      />
     )
   }
 
@@ -60,23 +64,39 @@ export const HeroAnimation = () => {
   }
 
   return (
-    <LiquidEther
-      className="absolute! inset-0 -z-10 size-full"
-      colors={['#5227FF', '#FF9FFC', '#B19EEF']}
-      takeoverDuration={0.25}
-      iterationsPoisson={32}
-      autoResumeDelay={3000}
-      iterationsViscous={64}
-      autoRampDuration={0.6}
-      autoIntensity={3}
-      isViscous={false}
-      cursorSize={100}
-      isBounce={false}
-      resolution={0.5}
-      mouseForce={50}
-      autoDemo={true}
-      autoSpeed={0}
-      viscous={30}
-    />
+    <Fragment>
+      <Blob />
+
+      <video
+        className="absolute inset-0 -z-10 size-full object-cover object-left"
+        preload="none"
+        playsInline
+        autoPlay
+        muted
+        loop
+      >
+        <source src="/videos/hero1.mp4" type="video/mp4" />
+      </video>
+    </Fragment>
+  )
+}
+
+const Blob = () => {
+  return (
+    <div className="pointer-events-none absolute right-0 bottom-0 size-1/2">
+      <MetaBalls
+        enableMouseInteraction={false}
+        enableTransparency={true}
+        cursorBallColor="#CBCBCB"
+        className="size-full"
+        hoverSmoothness={1}
+        cursorBallSize={2}
+        animationSize={40}
+        clumpFactor={1.2}
+        color="#CBCBCB"
+        ballCount={60}
+        speed={0.5}
+      />
+    </div>
   )
 }
