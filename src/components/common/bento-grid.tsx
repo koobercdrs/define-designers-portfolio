@@ -1,5 +1,4 @@
 import { ReactNode } from 'react'
-import Image from 'next/image'
 
 import { cn } from '@/library/utils'
 import SpotlightCard from './spotlight-card'
@@ -12,28 +11,26 @@ export const BentoGrid = ({
   children?: ReactNode
 }) => {
   return (
-    <div className={cn('grid grid-cols-1 gap-4 md:auto-rows-[18rem] md:grid-cols-3', className)}>
+    <div className={cn('grid grid-cols-1 gap-4 md:auto-rows-[18rem] md:grid-cols-5', className)}>
       {children}
     </div>
   )
 }
 
-export const BentoGridImage = ({ className, url }: { className?: string; url: string }) => {
+export const BentoGridImage = ({ className, src }: { className?: string; src: string }) => {
   return (
-    <div
-      className={cn(
-        'shadow-input row-span-1 flex flex-col justify-between overflow-hidden rounded-xl',
-        className,
-      )}
-    >
-      <Image
-        className="size-full object-cover"
-        alt="project image"
-        height={400}
-        width={400}
-        src={url}
-      />
-    </div>
+    <iframe
+      src={src}
+      loading="lazy"
+      scrolling="no"
+      allowFullScreen
+      title="Embedded content"
+      style={{ overflow: 'hidden' }}
+      referrerPolicy="strict-origin-when-cross-origin"
+      sandbox="allow-scripts allow-same-origin allow-presentation allow-popups allow-forms"
+      className={cn('shadow-input flex size-full flex-col overflow-hidden rounded-xl', className)}
+      allow="clipboard-write; fullscreen; accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+    ></iframe>
   )
 }
 
