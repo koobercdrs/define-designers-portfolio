@@ -25,7 +25,7 @@ export const HeroAnimation = () => {
         spotlightOpacity={1}
         blindMinWidth={50}
         distortAmount={20}
-        blindCount={12}
+        blindCount={20}
         noise={0.3}
         angle={0}
       />
