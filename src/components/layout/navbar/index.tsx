@@ -15,7 +15,7 @@ export const Navbar = () => {
   const isHome = pathname === '/'
 
   return (
-    <header className="pointer-events-none absolute top-5 z-50 w-full lg:top-16">
+    <header className="pointer-events-none absolute top-5 z-50 w-full lg:top-8">
       <div className="main-container flex items-center justify-between gap-4">
         <div className="flex flex-col gap-8">
           <Link className="pointer-events-auto" href="/">

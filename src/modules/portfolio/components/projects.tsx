@@ -1,35 +1,34 @@
 import { BentoGrid, BentoGridImage } from '@/components/common/bento-grid'
 import { PortfolioView } from '@/payload-types'
-
 export const getSizeClass = (index: number) => {
   const patterns = [
     // Row 1-2: Strong opening with large focal point
-    'col-span-2 row-span-2', // 0: Large square
+    'col-span-2 row-span-2 max-sm:col-span-1 max-sm:row-span-1', // 0: Large square
     'col-span-1 row-span-1', // 1: Small
-    'col-span-2 row-span-1', // 2: Wide rectangle
-    'col-span-1 row-span-2', // 3: Tall rectangle
-    'col-span-2 row-span-1', // 4: Small
+    'col-span-2 row-span-1 max-sm:col-span-1', // 2: Wide rectangle
+    'col-span-1 row-span-2 max-sm:row-span-1', // 3: Tall rectangle
+    'col-span-2 row-span-1 max-sm:col-span-1', // 4: Small
 
     // Row 3-4: Alternating rhythm
     'col-span-1 row-span-1', // 5: Small
-    'col-span-1 row-span-2', // 6: Tall rectangle
-    'col-span-2 row-span-1', // 7: Wide rectangle
+    'col-span-1 row-span-2 max-sm:row-span-1', // 6: Tall rectangle
+    'col-span-2 row-span-1 max-sm:col-span-1', // 7: Wide rectangle
     'col-span-1 row-span-1', // 8: Small
-    'col-span-2 row-span-1', // 9: Small
+    'col-span-2 row-span-1 max-sm:col-span-1', // 9: Small
 
     // Row 5-6: Another focal point
     'col-span-1 row-span-1', // 10: Small
     'col-span-1 row-span-1', // 11: Small
-    'col-span-2 row-span-2', // 12: Large square
+    'col-span-2 row-span-2 max-sm:col-span-1 max-sm:row-span-1', // 12: Large square
     'col-span-1 row-span-1', // 13: Small
-    'col-span-2 row-span-1', // 14: Small
+    'col-span-2 row-span-1 max-sm:col-span-1', // 14: Small
 
     // Row 7-8: Asymmetric balance
-    'col-span-2 row-span-1', // 15: Wide rectangle
-    'col-span-1 row-span-2', // 16: Tall rectangle
+    'col-span-2 row-span-1 max-sm:col-span-1', // 15: Wide rectangle
+    'col-span-1 row-span-2 max-sm:row-span-1', // 16: Tall rectangle
     'col-span-1 row-span-1', // 17: Small
     'col-span-1 row-span-1', // 18: Small
-    'col-span-2 row-span-1', // 19: Wide rectangle
+    'col-span-2 row-span-1 max-sm:col-span-1', // 19: Wide rectangle
   ]
 
   return patterns[index % patterns.length]

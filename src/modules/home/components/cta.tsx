@@ -4,7 +4,7 @@ import Link from 'next/link'
 
 export const CTA = ({ content }: { content: HomeView['cta'] }) => {
   return (
-    <section className="main-container my-24 flex flex-col items-center gap-6">
+    <section className="main-container my-16 flex flex-col items-center gap-6">
       <div className="flex flex-col items-center gap-2 text-center">
         <h1 className="text-2xl font-medium text-white lg:text-[32px] xl:text-[40px]">
           {content.title}

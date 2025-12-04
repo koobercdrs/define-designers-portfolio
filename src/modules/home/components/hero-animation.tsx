@@ -1,10 +1,11 @@
 'use client'
 import dynamic from 'next/dynamic'
-import { Fragment } from 'react'
 
 import GradientBlinds from '@/components/common/gradient-blinds'
-import MetaBalls from '@/components/common/meta-balls'
+import ColorBends from '@/components/common/color-bends'
 import { useTheme } from '../context/theme-context'
+import DotGrid from '@/components/common/dot-grid'
+import Dither from '@/components/common/dither'
 
 const LiquidChrome = dynamic(() => import('@/components/common/liquid-chrome'), { ssr: false })
 
@@ -31,71 +32,53 @@ export const HeroAnimation = () => {
     )
   }
 
-  if (theme === 'FloatingLines') {
+  if (theme === 'ColorBends') {
     return (
-      <GradientBlinds
+      <ColorBends
         className="absolute! inset-0 z-0 size-full"
-        gradientColors={['#FF9FFC', '#5227FF']}
-        mixBlendMode="lighten"
-        mouseDampening={0.15}
-        spotlightRadius={0.4}
-        spotlightSoftness={1}
-        shineDirection="left"
-        spotlightOpacity={1}
-        blindMinWidth={50}
-        distortAmount={0}
-        blindCount={12}
-        noise={0.3}
-        angle={0}
-      />
-    )
-  }
-
-  if (theme == 'LiquidChrome') {
-    return (
-      <LiquidChrome
-        className="absolute inset-0 z-0 size-full"
-        baseColor={[0, 0, 0.1]}
-        interactive={true}
-        amplitude={0.3}
+        colors={['#7805ad', '#6c0bad', '#5c0bad']}
+        rotation={0}
         speed={0.2}
+        scale={1.5}
+        frequency={1}
+        warpStrength={1}
+        mouseInfluence={1}
+        parallax={0.5}
+        noise={0.1}
+        transparent
       />
     )
   }
 
-  return (
-    <Fragment>
-      <Blob />
+  if (theme == 'Dither') {
+    return (
+      <div className="absolute! inset-0 z-0 size-full">
+        <Dither
+          enableMouseInteraction={true}
+          waveColor={[0.4, 0.3, 0.5]}
+          disableAnimation={false}
+          waveAmplitude={0.3}
+          mouseRadius={0.3}
+          waveFrequency={3}
+          waveSpeed={0.05}
+          colorNum={4}
+        />
+      </div>
+    )
+  }
 
-      <video
-        className="absolute inset-0 -z-10 size-full object-cover object-left"
-        preload="none"
-        playsInline
-        autoPlay
-        muted
-        loop
-      >
-        <source src="/videos/hero1.mp4" type="video/mp4" />
-      </video>
-    </Fragment>
-  )
-}
-
-const Blob = () => {
   return (
-    <div className="pointer-events-none absolute right-0 bottom-0 size-1/2">
-      <MetaBalls
-        enableMouseInteraction={false}
-        enableTransparency={true}
-        cursorBallColor="#CBCBCB"
-        className="size-full"
-        hoverSmoothness={1}
-        cursorBallSize={2}
-        animationSize={40}
-        clumpFactor={1.2}
-        color="#CBCBCB"
-        ballCount={60}
-        speed={0.5}
+    <div className="absolute inset-0 z-0 size-full">
+      <DotGrid
+        dotSize={4}
+        baseColor="#271e37"
+        activeColor="#7507cf"
+        proximity={200}
+        shockRadius={250}
+        shockStrength={5}
+        resistance={750}
+        returnDuration={1.5}
+        gap={15}
       />
     </div>
   )

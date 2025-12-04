@@ -2,12 +2,12 @@
 import { createContext, ReactNode, useContext, useEffect, useState } from 'react'
 
 export const hero_themes: ITheme[] = [
-  'LiquidEther',
-  'FloatingLines',
-  'LiquidChrome',
+  'DotGrid',
+  'ColorBends',
+  'Dither',
   'GradientBlinds',
 ]
-export type ITheme = 'LiquidEther' | 'FloatingLines' | 'LiquidChrome' | 'GradientBlinds'
+export type ITheme = 'DotGrid' | 'ColorBends' | 'Dither' | 'GradientBlinds'
 
 const theme_name = 'home-hero-theme'
 
@@ -17,7 +17,7 @@ interface ThemeContextType {
 }
 
 const themeContext = createContext<ThemeContextType>({
-  theme: 'LiquidEther',
+  theme: 'DotGrid',
   selectTheme: () => {},
 })
 

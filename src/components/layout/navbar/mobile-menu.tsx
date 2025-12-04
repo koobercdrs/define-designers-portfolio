@@ -41,8 +41,8 @@ export const MobileMenu = () => {
       >
         <motion.button
           className={cn(
-            buttonVariants(),
-            'absolute top-4 right-3 size-8 rounded-[2px] bg-white/10 p-1',
+            buttonVariants({ className: 'absolute' }),
+            'absolute! top-4 right-3 size-8 rounded-[2px] bg-white/10 p-1',
           )}
           onClick={() => setOpen(false)}
           variants={fadeInVariant}

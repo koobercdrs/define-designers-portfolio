@@ -1,4 +1,4 @@
-import { Compare } from '@/components/common/compare'
+import Compare from '@/components/common/compare'
 import { HomeView } from '@/payload-types'
 
 export const About = ({ content }: { content: HomeView['about'] }) => {

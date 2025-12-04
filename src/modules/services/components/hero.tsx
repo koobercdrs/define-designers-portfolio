@@ -1,11 +1,11 @@
-import FloatingLines from '@/components/common/floating-lines'
 import { Button } from '@/components/ui/button'
+import Dither from '@/components/common/dither'
 import { ServiceView } from '@/payload-types'
 import Link from 'next/link'
 
 export const Hero = ({ content }: { content: ServiceView['hero'] }) => {
   return (
-    <section className="relative h-[70dvh] lg:h-dvh">
+    <section className="relative h-[50dvh] lg:h-dvh 2xl:h-[75dvh]">
       <div className="main-container pointer-events-none relative z-10 size-full pt-32 lg:pt-60">
         <h1 className="pointer-events-auto max-w-[900px] text-3xl font-bold text-[#D9D7D3] lg:text-5xl xl:text-6xl">
           {content.title}
@@ -15,20 +15,21 @@ export const Hero = ({ content }: { content: ServiceView['hero'] }) => {
           {content.subtitle}
         </p>
 
-        <Button className="pointer-events-auto" variant="secondary">
+        <Button className="pointer-events-auto rounded-none rounded-r-3xl" variant="secondary">
           <Link href="/portfolio">{content.btn}</Link>
         </Button>
       </div>
 
       <div className="absolute inset-0 z-0 size-full">
-        <FloatingLines
-          enabledWaves={['top', 'middle', 'bottom']}
-          lineDistance={[30, 35, 30]}
-          lineCount={[20, 6, 20]}
-          bendStrength={-0.5}
-          interactive={true}
-          bendRadius={5.0}
-          parallax={true}
+        <Dither
+          waveColor={[0.4, 0.3, 0.5]}
+          enableMouseInteraction={true}
+          disableAnimation={false}
+          mouseRadius={0.3}
+          colorNum={4}
+          waveAmplitude={0.3}
+          waveFrequency={3}
+          waveSpeed={0.05}
         />
       </div>
     </section>

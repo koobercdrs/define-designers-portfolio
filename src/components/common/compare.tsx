@@ -1,9 +1,6 @@
 'use client'
 import React, { useState, useEffect, useRef, useCallback } from 'react'
 import { AnimatePresence, motion } from 'motion/react'
-import { EllipsisVertical } from 'lucide-react'
-
-import { cn } from '@/library/utils'
 
 interface CompareProps {
   firstImage?: string
@@ -17,9 +14,14 @@ interface CompareProps {
   autoplay?: boolean
   autoplayDuration?: number
 }
-export const Compare = ({
-  firstImage = '',
-  secondImage = '',
+
+function cn(...classes: any[]) {
+  return classes.filter(Boolean).join(' ')
+}
+
+export default function Compare({
+  firstImage = 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=800',
+  secondImage = 'https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=800',
   className,
   firstImageClassName,
   secondImageClassname,
@@ -28,7 +30,7 @@ export const Compare = ({
   showHandlebar = true,
   autoplay = false,
   autoplayDuration = 5000,
-}: CompareProps) => {
+}: CompareProps) {
   const [sliderXPercent, setSliderXPercent] = useState(initialSliderPercentage)
   const [isDragging, setIsDragging] = useState(false)
 
@@ -48,7 +50,7 @@ export const Compare = ({
       const percentage = progress <= 1 ? progress * 100 : (2 - progress) * 100
 
       setSliderXPercent(percentage)
-      autoplayRef.current = setTimeout(animate, 16) // ~60fps
+      autoplayRef.current = setTimeout(animate, 16)
     }
 
     animate()
@@ -146,7 +148,7 @@ export const Compare = ({
   return (
     <div
       ref={sliderRef}
-      className={cn('h-[400px] w-[400px] overflow-hidden', className)}
+      className={cn('h-[600px] w-full overflow-hidden', className)}
       style={{
         position: 'relative',
         cursor: slideMode === 'drag' ? 'grab' : 'col-resize',
@@ -160,23 +162,6 @@ export const Compare = ({
       onTouchEnd={handleTouchEnd}
       onTouchMove={handleTouchMove}
     >
-      <AnimatePresence initial={false}>
-        <motion.div
-          className="absolute top-0 z-30 m-auto h-full w-[3px] bg-white/70"
-          style={{
-            left: `${sliderXPercent}%`,
-            zIndex: 40,
-            top: '0',
-          }}
-          transition={{ duration: 0 }}
-        >
-          {showHandlebar && (
-            <div className="absolute top-1/2 -right-2.5 z-30 flex h-5 w-5 -translate-y-1/2 items-center justify-center rounded-md bg-white shadow-[0px_-1px_0px_0px_#FFFFFF40]">
-              <EllipsisVertical className="h-4 w-4 text-black" />
-            </div>
-          )}
-        </motion.div>
-      </AnimatePresence>
       <div className="pointer-events-none relative z-20 h-full w-full overflow-hidden">
         <AnimatePresence initial={false}>
           {firstImage ? (
@@ -186,7 +171,16 @@ export const Compare = ({
                 firstImageClassName,
               )}
               style={{
-                clipPath: `inset(0 ${100 - sliderXPercent}% 0 0)`,
+                maskImage: `linear-gradient(to right, 
+                  black 0%, 
+                  black ${Math.max(0, sliderXPercent - 2)}%, 
+                  transparent ${sliderXPercent}%, 
+                  transparent 100%)`,
+                WebkitMaskImage: `linear-gradient(to right, 
+                  black 0%, 
+                  black ${Math.max(0, sliderXPercent - 2)}%, 
+                  transparent ${sliderXPercent}%, 
+                  transparent 100%)`,
               }}
               transition={{ duration: 0 }}
             >
@@ -194,7 +188,7 @@ export const Compare = ({
                 alt="first image"
                 src={firstImage}
                 className={cn(
-                  'absolute inset-0 z-20 h-full w-full shrink-0 rounded-2xl select-none',
+                  'absolute inset-0 z-20 h-full w-full object-cover shrink-0 rounded-2xl select-none',
                   firstImageClassName,
                 )}
                 draggable={false}
@@ -208,7 +202,7 @@ export const Compare = ({
         {secondImage ? (
           <motion.img
             className={cn(
-              'absolute top-0 left-0 z-10 h-full w-full rounded-2xl select-none',
+              'absolute top-0 left-0 z-10 h-full w-full object-cover rounded-2xl select-none',
               secondImageClassname,
             )}
             alt="second image"
@@ -220,5 +214,3 @@ export const Compare = ({
     </div>
   )
 }
-
-// const MemoizedSparklesCore = React.memo(SparklesCore)
