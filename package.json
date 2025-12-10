@@ -70,6 +70,7 @@
     "vite-tsconfig-paths": "5.1.4",
     "vitest": "3.2.3"
   },
+  "packageManager": "pnpm@10.24.0",
   "engines": {
     "node": "22.x",
     "pnpm": "10.24.0"
