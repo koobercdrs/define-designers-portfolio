@@ -1,7 +1,15 @@
 import { GlobalConfig } from 'payload'
+import { revalidatePath } from 'next/cache';
 
 export const DraftView: GlobalConfig = {
   slug: 'draft-view',
+    hooks: {
+    afterChange: [
+      async () => {
+        revalidatePath('/', 'layout');
+      },
+    ],
+  },
   fields: [
     // Hero
     {
