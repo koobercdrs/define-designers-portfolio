@@ -1,7 +1,15 @@
 import { GlobalConfig } from 'payload'
+import { revalidatePath } from 'next/cache';
 
 export const LayoutView: GlobalConfig = {
   slug: 'layout-view',
+    hooks: {
+    afterChange: [
+      async () => {
+        revalidatePath('/', 'layout');
+      },
+    ],
+  },
   fields: [
     {
       name: 'media',
