@@ -1,7 +1,15 @@
 import { GlobalConfig } from 'payload'
+import { revalidatePath } from 'next/cache';
 
 export const HomeView: GlobalConfig = {
   slug: 'home-view',
+    hooks: {
+    afterChange: [
+      async () => {
+        revalidatePath('/', 'layout');
+      },
+    ],
+  },
   fields: [
     // Hero
     {
