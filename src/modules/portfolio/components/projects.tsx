@@ -44,7 +44,7 @@ export const Projects = ({ content }: { content: PortfolioView['projects'] }) =>
         <p className="text-sm font-light text-[#D9D7D3]/90">{content.subtitle}</p>
       </div>
 
-      <BentoGrid className="mt-20 gap-2">
+      <BentoGrid className="mt-20 gap-3 lg:gap-5">
         {content.list.map((item, i) => {
           return (
             <BentoGridImage
