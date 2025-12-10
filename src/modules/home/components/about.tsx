@@ -12,7 +12,7 @@ export const About = ({ content }: { content: HomeView['about'] }) => {
       </div>
 
       <Compare
-        className="aspect-video h-auto max-h-[700px] min-h-[200px] w-full"
+        className="aspect-20/9 h-auto max-h-[700px] min-h-[200px] w-full"
         secondImage={getMedia(content.second_img).url}
         firstImage={getMedia(content.first_img).url}
         initialSliderPercentage={2}

@@ -188,7 +188,7 @@ export default function Compare({
                 alt="first image"
                 src={firstImage}
                 className={cn(
-                  'absolute inset-0 z-20 h-full w-full shrink-0 rounded-2xl object-cover select-none',
+                  'absolute inset-0 z-20 h-full w-full shrink-0 rounded-2xl object-contain select-none',
                   firstImageClassName,
                 )}
                 draggable={false}
@@ -202,7 +202,7 @@ export default function Compare({
         {secondImage ? (
           <motion.img
             className={cn(
-              'absolute -top-1 left-0 z-10 h-full w-full rounded-2xl object-cover select-none',
+              'absolute -top-1 left-0 z-10 h-full w-full rounded-2xl object-contain select-none',
               secondImageClassname,
             )}
             alt="second image"
