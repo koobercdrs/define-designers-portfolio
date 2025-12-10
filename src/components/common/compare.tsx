@@ -173,12 +173,12 @@ export default function Compare({
               style={{
                 maskImage: `linear-gradient(to right, 
                   black 0%, 
-                  black ${Math.max(0, sliderXPercent - 2)}%, 
+                  black ${sliderXPercent}%, 
                   transparent ${sliderXPercent}%, 
                   transparent 100%)`,
                 WebkitMaskImage: `linear-gradient(to right, 
                   black 0%, 
-                  black ${Math.max(0, sliderXPercent - 2)}%, 
+                  black ${sliderXPercent}%, 
                   transparent ${sliderXPercent}%, 
                   transparent 100%)`,
               }}
@@ -188,7 +188,7 @@ export default function Compare({
                 alt="first image"
                 src={firstImage}
                 className={cn(
-                  'absolute inset-0 z-20 h-full w-full object-cover shrink-0 rounded-2xl select-none',
+                  'absolute inset-0 z-20 h-full w-full shrink-0 rounded-2xl object-cover select-none',
                   firstImageClassName,
                 )}
                 draggable={false}
@@ -202,7 +202,7 @@ export default function Compare({
         {secondImage ? (
           <motion.img
             className={cn(
-              'absolute top-0 left-0 z-10 h-full w-full object-cover rounded-2xl select-none',
+              'absolute top-0 left-0 z-10 h-full w-full rounded-2xl object-cover select-none',
               secondImageClassname,
             )}
             alt="second image"

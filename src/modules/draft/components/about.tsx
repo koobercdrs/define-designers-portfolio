@@ -5,7 +5,7 @@ export const About = () => {
   return (
     <section className="lg:mt-12">
       <div className="main-container flex flex-col gap-4">
-        <div className="aspect-video h-[200px] w-full overflow-hidden rounded-2xl border border-white/10 bg-white/60 backdrop-blur-lg lg:h-auto">
+        <div className="aspect-21/9 h-[200px] w-full overflow-hidden rounded-2xl border border-white/10 bg-white/60 backdrop-blur-lg lg:h-auto">
           <video
             className="size-full object-cover"
             preload="true"
@@ -21,7 +21,6 @@ export const About = () => {
         <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
           <div className="h-[200px] w-full rounded-2xl bg-white/40 backdrop-blur-lg lg:h-auto">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2977.123456789!2d44.7427138!3d41.7221797!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40447310dca04119%3A0x6216685a43114f42!2s34b%20Alexander%20Kazbegi%20Ave%2C%20T'bilisi!5e0!3m2!1sen!2sge!4v1234567890123"
               width="100%"
               height="100%"
               loading="lazy"
@@ -30,6 +29,7 @@ export const About = () => {
               style={{ border: 0 }}
               className="rounded-2xl"
               referrerPolicy="no-referrer-when-downgrade"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2977.123456789!2d44.7427138!3d41.7221797!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40447310dca04119%3A0x6216685a43114f42!2s34b%20Alexander%20Kazbegi%20Ave%2C%20T'bilisi!5e0!3m2!1sen!2sge!4v1234567890123"
             />
           </div>
 

@@ -31,7 +31,7 @@ export const Work = ({ content }: { content: HomeView['work'] }) => {
         direction="left"
         fadeOutColor="#000"
         ariaLabel="Technology partners"
-        className="overflow-y-hidden py-2"
+        className="overflow-y-hidden py-2 italic"
       />
     </section>
   )
