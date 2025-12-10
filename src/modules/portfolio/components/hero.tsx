@@ -4,7 +4,7 @@ import { PortfolioView } from '@/payload-types'
 
 export const Hero = ({ content }: { content: PortfolioView['hero'] }) => {
   return (
-    <section className="relative h-[50dvh] lg:h-[75dvh] 2xl:h-[70dvh]">
+    <section className="relative pt-44 pb-20 2xl:pt-52 2xl:pb-44">
       <div className="main-container pointer-events-none relative z-10 flex size-full flex-col items-start justify-center">
         <h1 className="pointer-events-auto text-3xl font-bold text-[#D9D7D3] lg:text-5xl xl:text-6xl">
           {content.title}

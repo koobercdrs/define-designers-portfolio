@@ -5,8 +5,8 @@ import Link from 'next/link'
 
 export const Hero = ({ content }: { content: ServiceView['hero'] }) => {
   return (
-    <section className="relative h-[50dvh] lg:h-[75dvh] 2xl:h-[70dvh]">
-      <div className="main-container pointer-events-none relative z-10 size-full pt-32 lg:pt-60">
+    <section className="relative pt-44 pb-20 2xl:pt-52 2xl:pb-44">
+      <div className="main-container pointer-events-none relative z-10 size-full">
         <h1 className="pointer-events-auto max-w-[900px] text-3xl font-bold text-[#D9D7D3] lg:text-5xl xl:text-6xl">
           {content.title}
         </h1>
