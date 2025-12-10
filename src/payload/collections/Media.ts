@@ -6,7 +6,7 @@ export const Media: CollectionConfig = {
     disableLocalStorage: true,
     formatOptions: {
       format: 'webp',
-      options: { quality: 90 },
+      options: { quality: 100 },
     },
     resizeOptions: {
       width: 1920,
