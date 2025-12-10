@@ -12,7 +12,7 @@ export const BentoGrid = ({
   children?: ReactNode
 }) => {
   return (
-    <div className={cn('grid grid-cols-1 gap-4 md:auto-rows-[18rem] md:grid-cols-4', className)}>
+    <div className={cn('grid grid-cols-1 gap-6 md:auto-rows-[18rem] md:grid-cols-4', className)}>
       {children}
     </div>
   )
