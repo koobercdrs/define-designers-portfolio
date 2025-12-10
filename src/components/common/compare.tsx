@@ -202,7 +202,7 @@ export default function Compare({
         {secondImage ? (
           <motion.img
             className={cn(
-              'absolute top-0 left-0 z-10 h-full w-full rounded-2xl object-cover select-none',
+              'absolute -top-1 left-0 z-10 h-full w-full rounded-2xl object-cover select-none',
               secondImageClassname,
             )}
             alt="second image"
