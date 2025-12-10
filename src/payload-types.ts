@@ -92,6 +92,7 @@ export interface Config {
     'portfolio-view': PortfolioView;
     'contact-view': ContactView;
     'draft-view': DraftView;
+    'layout-view': LayoutView;
   };
   globalsSelect: {
     'home-view': HomeViewSelect<false> | HomeViewSelect<true>;
@@ -99,6 +100,7 @@ export interface Config {
     'portfolio-view': PortfolioViewSelect<false> | PortfolioViewSelect<true>;
     'contact-view': ContactViewSelect<false> | ContactViewSelect<true>;
     'draft-view': DraftViewSelect<false> | DraftViewSelect<true>;
+    'layout-view': LayoutViewSelect<false> | LayoutViewSelect<true>;
   };
   locale: null;
   user: User & {
@@ -443,6 +445,21 @@ export interface DraftView {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "layout-view".
+ */
+export interface LayoutView {
+  id: string;
+  media: {
+    name: string;
+    link: string;
+    id?: string | null;
+  }[];
+  info: string;
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "home-view_select".
  */
 export interface HomeViewSelect<T extends boolean = true> {
@@ -582,6 +599,23 @@ export interface DraftViewSelect<T extends boolean = true> {
         primary_btn?: T;
         secondary_btn?: T;
       };
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "layout-view_select".
+ */
+export interface LayoutViewSelect<T extends boolean = true> {
+  media?:
+    | T
+    | {
+        name?: T;
+        link?: T;
+        id?: T;
+      };
+  info?: T;
   updatedAt?: T;
   createdAt?: T;
   globalType?: T;

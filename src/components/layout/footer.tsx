@@ -1,7 +1,8 @@
+import { LayoutView } from '@/payload-types'
 import Image from 'next/image'
 import Link from 'next/link'
 
-export const Footer = () => {
+export const Footer = ({ content }: { content: LayoutView | null }) => {
   return (
     <footer className="relative overflow-hidden bg-[#101010]">
       <div className="absolute -top-5 -left-16 h-[120px] w-[400px] bg-[#3E0A78] blur-[160px]"></div>
@@ -32,31 +33,21 @@ export const Footer = () => {
 
         <div className="mt-4 mb-9 h-px w-full rounded-md bg-white/30 lg:my-10"></div>
 
-        {/* TODO: add links */}
         <div className="flex items-center justify-between gap-10">
           <ul className="flex flex-col gap-3 text-sm font-medium text-white">
-            <li>
-              <a target="_blank" href="/not-new">
-                34b Alexander Kazbegi ave, Tbilisi
-              </a>
-            </li>
-            <li>
-              <a target="_blank" href="/not-new">
-                design@ddrafts.com
-              </a>
-            </li>
-            <li>
-              <a target="_blank" href="/not-new">
-                +995 557 544 700
-              </a>
-            </li>
+            {content?.media.map((item, index) => {
+              return (
+                <li key={index}>
+                  <a target="_blank" href={item.link}>
+                    {item.name}
+                  </a>
+                </li>
+              )
+            })}
           </ul>
 
           <p className="hidden max-w-[800px] text-right text-base font-light text-white lg:block">
-            Define Draft creates cohesive and modern brand identities. We design logos, visual
-            systems, and brand guidelines. We craft digital and print layouts, and social media
-            visuals. We also produce motion graphics and logo animations. Finally, we provide
-            creative direction and brand storytelling to make your brand stand out.
+            {content?.info}
           </p>
         </div>
       </div>

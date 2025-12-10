@@ -13,6 +13,7 @@ import { ServiceView } from './payload/views/services-view'
 import { HomeView } from './payload/views/home-view'
 import { ContactView } from './payload/views/contact-view'
 import { DraftView } from './payload/views/draft-view'
+import { LayoutView } from './payload/views/layout-view'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -22,7 +23,7 @@ export default buildConfig({
   plugins: [],
   defaultDepth: 2,
   collections: [Users, Media],
-  globals: [HomeView, ServiceView, PortfolioView, ContactView, DraftView],
+  globals: [HomeView, ServiceView, PortfolioView, ContactView, DraftView, LayoutView],
   email: resendAdapter({
     defaultFromAddress: 'Acme <onboarding@resend.dev>',
     apiKey: process.env.RESEND_API || '',

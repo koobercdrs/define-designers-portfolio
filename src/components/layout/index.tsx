@@ -4,15 +4,22 @@ import { ThemeProvider } from '@/modules/home/context/theme-context'
 
 import { Footer } from './footer'
 import { Navbar } from './navbar'
+import { LayoutView } from '@/payload-types'
 
-export const Layout = ({ children }: { children: ReactNode }) => {
+export const Layout = ({
+  children,
+  content,
+}: {
+  children: ReactNode
+  content: LayoutView | null
+}) => {
   return (
     <ThemeProvider>
       <Navbar />
 
       <main>{children}</main>
 
-      <Footer />
+      <Footer content={content} />
     </ThemeProvider>
   )
 }
