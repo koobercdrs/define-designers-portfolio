@@ -3,6 +3,7 @@ import type { CollectionConfig } from 'payload'
 export const Media: CollectionConfig = {
   slug: 'media',
   upload: {
+    disableLocalStorage: true,
     formatOptions: {
       format: 'webp',
       options: { quality: 90 },
@@ -12,12 +13,7 @@ export const Media: CollectionConfig = {
       height: 1080,
     },
   },
-  access: { read: () => true },
-  fields: [
-    {
-      name: 'alt',
-      type: 'text',
-      required: true,
-    },
-  ],
+  admin: { description: 'Upload an media' },
+  labels: { singular: 'ფაილი', plural: 'ფაილები' },
+  fields: [{ name: 'alt', type: 'text', required: true, localized: true }],
 }

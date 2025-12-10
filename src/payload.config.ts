@@ -1,3 +1,4 @@
+import { uploadthingStorage } from '@payloadcms/storage-uploadthing'
 import { resendAdapter } from '@payloadcms/email-resend'
 import { mongooseAdapter } from '@payloadcms/db-mongodb'
 import { buildConfig } from 'payload'
@@ -20,7 +21,13 @@ const dirname = path.dirname(filename)
 
 export default buildConfig({
   sharp,
-  plugins: [],
+  plugins: [
+    uploadthingStorage({
+      enabled: true,
+      collections: { media: true },
+      options: { token: process.env.UPLOADTHING_TOKEN, acl: 'public-read' },
+    }),
+  ],
   defaultDepth: 2,
   collections: [Users, Media],
   globals: [HomeView, ServiceView, PortfolioView, ContactView, DraftView, LayoutView],
