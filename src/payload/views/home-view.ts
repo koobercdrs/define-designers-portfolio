@@ -7,7 +7,6 @@ export const HomeView: GlobalConfig = {
     {
       name: 'hero',
       type: 'group',
-      required: true,
       fields: [
         {
           type: 'text',
@@ -55,7 +54,6 @@ export const HomeView: GlobalConfig = {
     {
       name: 'about',
       type: 'group',
-      required: true,
       fields: [
         {
           type: 'text',
@@ -84,7 +82,6 @@ export const HomeView: GlobalConfig = {
 
     // CTA
     {
-      required: true,
       type: 'group',
       name: 'cta',
       fields: [

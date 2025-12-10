@@ -3,6 +3,14 @@ import type { NextConfig } from 'next'
 
 const nextConfig: NextConfig = {
   experimental: { reactCompiler: true },
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'utfs.io',
+      },
+    ],
+  },
 }
 
-export default withPayload(nextConfig, { devBundleServerPackages: false })
+export default withPayload(nextConfig)

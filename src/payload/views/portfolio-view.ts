@@ -7,7 +7,6 @@ export const PortfolioView: GlobalConfig = {
     {
       name: 'hero',
       type: 'group',
-      required: true,
       fields: [
         {
           type: 'text',
@@ -30,7 +29,6 @@ export const PortfolioView: GlobalConfig = {
     // Projects
     {
       name: 'projects',
-      required: true,
       type: 'group',
       fields: [
         {

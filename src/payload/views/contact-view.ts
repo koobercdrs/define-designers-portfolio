@@ -4,7 +4,6 @@ export const ContactView: GlobalConfig = {
   slug: 'contact-view',
   fields: [
     {
-      required: true,
       type: 'group',
       name: 'form',
       fields: [

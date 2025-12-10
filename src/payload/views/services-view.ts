@@ -7,7 +7,6 @@ export const ServiceView: GlobalConfig = {
     {
       name: 'hero',
       type: 'group',
-      required: true,
       fields: [
         {
           type: 'text',
@@ -30,7 +29,6 @@ export const ServiceView: GlobalConfig = {
     // Services
     {
       name: 'services',
-      required: true,
       type: 'group',
       fields: [
         {
@@ -60,7 +58,6 @@ export const ServiceView: GlobalConfig = {
 
     // CTA
     {
-      required: true,
       type: 'group',
       name: 'cta',
       fields: [

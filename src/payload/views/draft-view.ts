@@ -5,7 +5,6 @@ export const DraftView: GlobalConfig = {
   fields: [
     // Hero
     {
-      required: true,
       type: 'group',
       name: 'hero',
       fields: [
@@ -24,7 +23,6 @@ export const DraftView: GlobalConfig = {
 
     // CTA
     {
-      required: true,
       type: 'group',
       name: 'cta',
       fields: [
