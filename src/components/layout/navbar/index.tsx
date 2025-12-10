@@ -7,7 +7,6 @@ import { ThemeSelector } from './theme-selector'
 import { Button } from '@/components/ui/button'
 import { MobileMenu } from './mobile-menu'
 import { Navigation } from './navigation'
-import SpotlightCard from '@/components/common/spotlight-card'
 
 export const Navbar = () => {
   const pathname = usePathname()

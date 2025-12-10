@@ -20,7 +20,7 @@ export const Work = ({ content }: { content: HomeView['work'] }) => {
   const data = getData(content)
 
   return (
-    <section className="mt-16 2xl:mt-26">
+    <section>
       <LogoLoop
         fadeOut
         gap={40}

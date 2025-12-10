@@ -5,7 +5,7 @@ import Link from 'next/link'
 
 export const Hero = ({ content }: { content: ServiceView['hero'] }) => {
   return (
-    <section className="relative h-[50dvh] lg:h-dvh 2xl:h-[75dvh]">
+    <section className="relative h-[50dvh] lg:h-[75dvh] 2xl:h-[70dvh]">
       <div className="main-container pointer-events-none relative z-10 size-full pt-32 lg:pt-60">
         <h1 className="pointer-events-auto max-w-[900px] text-3xl font-bold text-[#D9D7D3] lg:text-5xl xl:text-6xl">
           {content.title}
@@ -22,14 +22,14 @@ export const Hero = ({ content }: { content: ServiceView['hero'] }) => {
 
       <div className="absolute inset-0 z-0 size-full">
         <Dither
-          waveColor={[0.4, 0.3, 0.5]}
           enableMouseInteraction={true}
+          waveColor={[0.2, 0, 0.7]}
           disableAnimation={false}
-          mouseRadius={0.3}
-          colorNum={4}
-          waveAmplitude={0.3}
-          waveFrequency={3}
-          waveSpeed={0.05}
+          waveAmplitude={0.19}
+          waveFrequency={5.1}
+          mouseRadius={0}
+          waveSpeed={0}
+          colorNum={2.5}
         />
       </div>
     </section>

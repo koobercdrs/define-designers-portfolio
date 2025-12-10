@@ -2,7 +2,7 @@
 import { usePathname } from 'next/navigation'
 import Link from 'next/link'
 
-import SpotlightCard from '@/components/common/spotlight-card'
+import { LiquidGlassCard } from '@/components/common/liquid-glass-card'
 import { routes } from '@/configs/routes'
 import { cn } from '@/library/utils'
 
@@ -10,11 +10,14 @@ export const Navigation = () => {
   const pathname = usePathname()
 
   return (
-    <SpotlightCard
-      spotlightColor="rgba(133, 35, 186, 1)"
-      className="rounded-0 pointer-events-auto hidden rounded-r-4xl p-0 lg:flex"
+    <LiquidGlassCard
+      draggable={false}
+      blurIntensity="sm"
+      shadowIntensity="sm"
+      borderRadius="0px 32px 32px 0px"
+      className="rounded-0 pointer-events-auto hidden h-10 w-full max-w-[430px] rounded-r-4xl p-0 px-8 lg:flex"
     >
-      <nav className="liquid-glass h-10 w-full max-w-[430px] border border-white/10 bg-linear-to-b from-[#101010]/10 to-white/10 px-8 backdrop-blur-lg">
+      <nav className="relative z-30">
         <ul className="flex size-full items-center gap-6">
           {routes.map((route, index) => {
             const isActive = pathname === route.href
@@ -33,6 +36,6 @@ export const Navigation = () => {
           })}
         </ul>
       </nav>
-    </SpotlightCard>
+    </LiquidGlassCard>
   )
 }

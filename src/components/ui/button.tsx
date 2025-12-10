@@ -6,7 +6,7 @@ import { cn } from '@/library/utils'
 import SpotlightCard from '../common/spotlight-card'
 
 const buttonVariants = cva(
-  "flex liquid-glass items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive",
+  "flex liquid-glass items-center justify-center gap-2 whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive",
   {
     variants: {
       variant: {
@@ -51,7 +51,10 @@ function Button({
 
   if (hasAnimation) {
     return (
-      <SpotlightCard spotlightColor="rgba(187, 74, 247, 1)" className="p-0">
+      <SpotlightCard
+        spotlightColor="rgba(187, 74, 247, 1)"
+        className="max-w-fit overflow-hidden rounded-4xl p-0"
+      >
         <Comp
           className={cn(buttonVariants({ variant, size, className }))}
           data-slot="button"

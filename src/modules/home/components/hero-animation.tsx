@@ -16,18 +16,17 @@ export const HeroAnimation = () => {
     return (
       <GradientBlinds
         className="absolute! inset-0 z-0 size-full"
-        gradientColors={['#FF9FFC', '#5227FF']}
-        mixBlendMode="lighten"
-        mouseDampening={0.15}
-        spotlightRadius={0.3}
+        gradientColors={['#ac11a7', '#5227ff']}
+        mouseDampening={0.1}
+        spotlightRadius={0.9}
         spotlightSoftness={1}
-        shineDirection="left"
-        spotlightOpacity={1}
-        blindMinWidth={50}
-        distortAmount={20}
-        blindCount={20}
-        noise={0.3}
-        angle={0}
+        shineDirection="right"
+        spotlightOpacity={0.6}
+        blindMinWidth={40}
+        distortAmount={0}
+        blindCount={33}
+        noise={0.22}
+        angle={18}
       />
     )
   }
@@ -36,16 +35,16 @@ export const HeroAnimation = () => {
     return (
       <ColorBends
         className="absolute! inset-0 z-0 size-full"
-        colors={['#7805ad', '#6c0bad', '#5c0bad']}
-        rotation={0}
-        speed={0.2}
-        scale={1.5}
+        colors={['#d30ee1']}
+        mouseInfluence={0.85}
+        warpStrength={0.95}
+        rotation={-180}
+        parallax={1.05}
+        autoRotate={0}
         frequency={1}
-        warpStrength={1}
-        mouseInfluence={1}
-        parallax={0.5}
-        noise={0.1}
-        transparent
+        speed={0.48}
+        scale={1.7}
+        noise={0}
       />
     )
   }
@@ -55,13 +54,13 @@ export const HeroAnimation = () => {
       <div className="absolute! inset-0 z-0 size-full">
         <Dither
           enableMouseInteraction={true}
-          waveColor={[0.4, 0.3, 0.5]}
+          waveColor={[0.2, 0, 0.7]}
           disableAnimation={false}
-          waveAmplitude={0.3}
-          mouseRadius={0.3}
-          waveFrequency={3}
-          waveSpeed={0.05}
-          colorNum={4}
+          waveAmplitude={0.19}
+          waveFrequency={5.1}
+          mouseRadius={0}
+          waveSpeed={0}
+          colorNum={2.5}
         />
       </div>
     )
@@ -70,15 +69,15 @@ export const HeroAnimation = () => {
   return (
     <div className="absolute inset-0 z-0 size-full">
       <DotGrid
-        dotSize={4}
-        baseColor="#271e37"
-        activeColor="#7507cf"
-        proximity={200}
-        shockRadius={250}
-        shockStrength={5}
-        resistance={750}
-        returnDuration={1.5}
-        gap={15}
+        dotSize={2}
+        baseColor="#6a23e7"
+        activeColor="#ffffff"
+        proximity={50}
+        shockRadius={50}
+        shockStrength={1}
+        resistance={100}
+        returnDuration={0.1}
+        gap={12}
       />
     </div>
   )
