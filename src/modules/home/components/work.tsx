@@ -1,9 +1,10 @@
 import LogoLoop, { LogoItem } from '@/components/common/logo-loop'
+import { getMedia } from '@/library/payload'
 import { HomeView, Media } from '@/payload-types'
 
 const getData = (data: HomeView['work']) => {
   return data.map((item) => {
-    const media = (item.icon as Media)?.url
+    const media = getMedia(item.icon as Media).url
 
     const logos: LogoItem = {
       text: item.text,

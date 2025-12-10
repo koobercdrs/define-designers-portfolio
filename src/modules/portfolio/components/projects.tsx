@@ -1,5 +1,6 @@
 import { BentoGrid, BentoGridImage } from '@/components/common/bento-grid'
-import { Media, PortfolioView } from '@/payload-types'
+import { getMedia } from '@/library/payload'
+import { PortfolioView } from '@/payload-types'
 
 export const getSizeClass = (index: number) => {
   const patterns = [
@@ -47,7 +48,7 @@ export const Projects = ({ content }: { content: PortfolioView['projects'] }) =>
         {content.list.map((item, i) => {
           return (
             <BentoGridImage
-              src={(item.image as Media)?.url || ''}
+              src={getMedia(item.image).url}
               className={getSizeClass(i)}
               link={item.link}
               key={i}
