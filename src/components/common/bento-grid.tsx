@@ -1,7 +1,8 @@
 import { ReactNode } from 'react'
+import Image from 'next/image'
 
-import { cn } from '@/library/utils'
 import SpotlightCard from './spotlight-card'
+import { cn } from '@/library/utils'
 
 export const BentoGrid = ({
   className,
@@ -11,26 +12,29 @@ export const BentoGrid = ({
   children?: ReactNode
 }) => {
   return (
-    <div className={cn('grid grid-cols-1 gap-4 md:auto-rows-[18rem] md:grid-cols-5', className)}>
+    <div className={cn('grid grid-cols-1 gap-4 md:auto-rows-[18rem] md:grid-cols-4', className)}>
       {children}
     </div>
   )
 }
 
-export const BentoGridImage = ({ className, src }: { className?: string; src: string }) => {
+export const BentoGridImage = ({
+  className,
+  link,
+  src,
+}: {
+  className?: string
+  link: string
+  src: string
+}) => {
   return (
-    <iframe
-      src={src}
-      loading="lazy"
-      scrolling="no"
-      allowFullScreen
-      title="Embedded content"
-      style={{ overflow: 'hidden' }}
-      referrerPolicy="strict-origin-when-cross-origin"
-      sandbox="allow-scripts allow-same-origin allow-presentation allow-popups allow-forms"
+    <a
+      href={link}
+      target="_blank"
       className={cn('shadow-input flex size-full flex-col overflow-hidden rounded-xl', className)}
-      allow="clipboard-write; fullscreen; accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-    ></iframe>
+    >
+      <Image className="size-full object-cover" src={src} alt="projects" width={600} height={480} />
+    </a>
   )
 }
 

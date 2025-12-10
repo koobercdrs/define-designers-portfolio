@@ -67,6 +67,18 @@ export const HomeView: GlobalConfig = {
           name: 'subtitle',
           required: true,
         },
+        {
+          type: 'upload',
+          required: true,
+          name: 'first_img',
+          relationTo: 'media',
+        },
+        {
+          type: 'upload',
+          required: true,
+          name: 'second_img',
+          relationTo: 'media',
+        },
       ],
     },
 

@@ -49,8 +49,14 @@ export const PortfolioView: GlobalConfig = {
           name: 'list',
           fields: [
             {
-              name: 'link',
+              name: 'image',
+              type: 'upload',
+              required: true,
+              relationTo: 'media',
+            },
+            {
               type: 'text',
+              name: 'link',
               required: true,
             },
           ],

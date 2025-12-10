@@ -1,5 +1,5 @@
 import Compare from '@/components/common/compare'
-import { HomeView } from '@/payload-types'
+import { HomeView, Media } from '@/payload-types'
 
 export const About = ({ content }: { content: HomeView['about'] }) => {
   return (
@@ -10,15 +10,13 @@ export const About = ({ content }: { content: HomeView['about'] }) => {
         <p className="text-sm font-light lg:text-xl xl:text-2xl">{content.subtitle}</p>
       </div>
 
-      <div>
-        <Compare
-          className="aspect-video h-auto max-h-[700px] min-h-[200px] w-full"
-          secondImage="/images/secondImage.png"
-          firstImage="/images/firstImage.png"
-          initialSliderPercentage={2}
-          slideMode="hover"
-        />
-      </div>
+      <Compare
+        className="aspect-video h-auto max-h-[700px] min-h-[200px] w-full"
+        secondImage={(content.second_img as Media)?.url || ''}
+        firstImage={(content.first_img as Media)?.url || ''}
+        initialSliderPercentage={2}
+        slideMode="hover"
+      />
     </section>
   )
 }

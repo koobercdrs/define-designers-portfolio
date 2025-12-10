@@ -346,6 +346,8 @@ export interface HomeView {
   about: {
     title: string;
     subtitle: string;
+    first_img: string | Media;
+    second_img: string | Media;
   };
   cta: {
     title: string;
@@ -399,6 +401,7 @@ export interface PortfolioView {
     title: string;
     subtitle: string;
     list: {
+      image: string | Media;
       link: string;
       id?: string | null;
     }[];
@@ -465,6 +468,8 @@ export interface HomeViewSelect<T extends boolean = true> {
     | {
         title?: T;
         subtitle?: T;
+        first_img?: T;
+        second_img?: T;
       };
   cta?:
     | T
@@ -534,6 +539,7 @@ export interface PortfolioViewSelect<T extends boolean = true> {
         list?:
           | T
           | {
+              image?: T;
               link?: T;
               id?: T;
             };
