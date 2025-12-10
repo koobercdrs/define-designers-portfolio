@@ -151,7 +151,7 @@ export default function Compare({
       className={cn('h-[600px] w-full overflow-hidden', className)}
       style={{
         position: 'relative',
-        cursor: slideMode === 'drag' ? 'grab' : 'col-resize',
+        // cursor: slideMode === 'drag' ? 'grab' : 'col-resize',
       }}
       onMouseMove={handleMouseMove}
       onMouseLeave={mouseLeaveHandler}
